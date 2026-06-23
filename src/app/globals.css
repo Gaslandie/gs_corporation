@@ -1,0 +1,35 @@
+/* ==========================================================================
+   GS Corporation — styles globaux
+   Centralisation des variables de style (couleurs, espacements, etc.).
+   Voir AGENTS.md : tout ce qui peut être centralisé doit l'être ici.
+   ========================================================================== */
+
+:root {
+  /* Couleurs de marque — GS Corporation (rouge, gris, blanc, bleu marine) */
+  --gs-rouge: #c0192e;
+  --gs-bleu-marine: #0d2240;
+  --gs-gris: #6c757d;
+  --gs-gris-clair: #f4f5f7;
+  --gs-blanc: #ffffff;
+  --gs-texte: #1c2733;
+
+  /* Espacements de section (éviter que les sections se touchent) */
+  --gs-section-padding-y: 5rem;
+  --gs-section-gap: 2rem;
+
+  /* Rayons, ombres, bordures */
+  --gs-radius: 0.5rem;
+  --gs-ombre-carte: 0 0.5rem 1.5rem rgba(13, 34, 64, 0.08);
+  --gs-bordure: 1px solid rgba(13, 34, 64, 0.1);
+}
+
+body {
+  color: var(--gs-texte);
+  background-color: var(--gs-blanc);
+}
+
+/* Espacement vertical standard des sections du site */
+.gs-section {
+  padding-top: var(--gs-section-padding-y);
+  padding-bottom: var(--gs-section-padding-y);
+}
