@@ -47,6 +47,8 @@ Centraliser tout ce qui peut être centralisé :
 
 Éviter le code dupliqué.
 
+Toutes les couleurs, tailles, espacements et styles réutilisables doivent être centralisés (dans `globals.css` et `src/data`) avant d’être utilisés dans plusieurs composants.
+
 Préparer une structure facile à transformer plus tard en site dynamique Next.js complet.
 
 ## Design

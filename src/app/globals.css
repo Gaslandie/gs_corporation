@@ -1,25 +1,46 @@
 /* ==========================================================================
-   GS Corporation — styles globaux
-   Centralisation des variables de style (couleurs, espacements, etc.).
-   Voir AGENTS.md : tout ce qui peut être centralisé doit l'être ici.
+   GS Corporation — Design system global
+   Tout ce qui est réutilisable est centralisé ici (couleurs, tailles,
+   espacements, rayons, ombres, boutons, cartes, sections, thèmes).
+   Voir AGENTS.md : centraliser avant de réutiliser dans plusieurs composants.
    ========================================================================== */
 
 :root {
-  /* Couleurs de marque — GS Corporation (rouge, gris, blanc, bleu marine) */
+  /* --- Couleurs de marque GS Corporation (rouge, gris, blanc, bleu marine) --- */
   --gs-rouge: #c0192e;
+  --gs-rouge-fonce: #9c1325;
   --gs-bleu-marine: #0d2240;
+  --gs-bleu-marine-clair: #1b3a63;
   --gs-gris: #6c757d;
   --gs-gris-clair: #f4f5f7;
   --gs-blanc: #ffffff;
   --gs-texte: #1c2733;
 
-  /* Espacements de section (éviter que les sections se touchent) */
-  --gs-section-padding-y: 5rem;
-  --gs-section-gap: 2rem;
+  /* --- Couleur primaire active (surchargée par les thèmes de département) --- */
+  --gs-primary: var(--gs-rouge);
+  --gs-primary-hover: var(--gs-rouge-fonce);
+  --gs-accent: var(--gs-bleu-marine);
+  --gs-on-primary: #ffffff;
 
-  /* Rayons, ombres, bordures */
+  /* --- Typographie (tailles centralisées) --- */
+  --gs-fs-xs: 0.85rem;
+  --gs-fs-sm: 0.95rem;
+  --gs-fs-base: 1rem;
+  --gs-fs-lg: 1.25rem;
+  --gs-fs-xl: 1.75rem;
+  --gs-fs-display: clamp(2.25rem, 5vw, 3.5rem);
+
+  /* --- Espacements --- */
+  --gs-space-sm: 1rem;
+  --gs-space-md: 2rem;
+  --gs-space-lg: 4rem;
+  --gs-section-padding-y: 5rem;
+
+  /* --- Rayons, ombres, bordures --- */
   --gs-radius: 0.5rem;
+  --gs-radius-lg: 1rem;
   --gs-ombre-carte: 0 0.5rem 1.5rem rgba(13, 34, 64, 0.08);
+  --gs-ombre-carte-hover: 0 1rem 2rem rgba(13, 34, 64, 0.16);
   --gs-bordure: 1px solid rgba(13, 34, 64, 0.1);
 }
 
@@ -28,8 +49,131 @@ body {
   background-color: var(--gs-blanc);
 }
 
-/* Espacement vertical standard des sections du site */
-.gs-section {
+/* ==========================================================================
+   Thèmes par département (surchargent --gs-primary / --gs-accent)
+   ========================================================================== */
+
+.theme-corporation {
+  --gs-primary: var(--gs-rouge);
+  --gs-primary-hover: var(--gs-rouge-fonce);
+  --gs-accent: var(--gs-bleu-marine);
+}
+
+.theme-consulting {
+  --gs-primary: #0d2240; /* bleu marine */
+  --gs-primary-hover: #1b3a63;
+  --gs-accent: #f2b705; /* jaune */
+}
+
+.theme-logistique {
+  --gs-primary: #0d2240; /* bleu marine */
+  --gs-primary-hover: #1b3a63;
+  --gs-accent: #e8730c; /* orange */
+}
+
+.theme-immobilier {
+  --gs-primary: #0d2240; /* bleu marine */
+  --gs-primary-hover: #1b3a63;
+  --gs-accent: #b8862b; /* marron / or */
+}
+
+.theme-agrobusiness {
+  --gs-primary: #1f7a3d; /* vert */
+  --gs-primary-hover: #165c2d;
+  --gs-accent: #1f7a3d;
+}
+
+.theme-foreurs {
+  --gs-primary: var(--gs-rouge);
+  --gs-primary-hover: var(--gs-rouge-fonce);
+  --gs-accent: var(--gs-gris);
+}
+
+/* ==========================================================================
+   Sections (éviter que les sections se touchent + rythme vertical)
+   ========================================================================== */
+
+.section-padding {
   padding-top: var(--gs-section-padding-y);
   padding-bottom: var(--gs-section-padding-y);
+}
+
+/* Espace de respiration entre deux sections empilées */
+.section-gap + .section-gap {
+  margin-top: var(--gs-space-md);
+}
+
+.section-muted {
+  background-color: var(--gs-gris-clair);
+}
+
+/* ==========================================================================
+   Boutons GS (taille professionnelle, compatibles Bootstrap)
+   ========================================================================== */
+
+.btn-gs-primary,
+.btn-gs-outline {
+  --bs-btn-padding-x: 1.4rem;
+  --bs-btn-padding-y: 0.6rem;
+  font-weight: 600;
+  border-radius: var(--gs-radius);
+  transition: background-color 0.15s ease, color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.btn-gs-primary {
+  background-color: var(--gs-primary);
+  border: 1px solid var(--gs-primary);
+  color: var(--gs-on-primary);
+}
+
+.btn-gs-primary:hover,
+.btn-gs-primary:focus {
+  background-color: var(--gs-primary-hover);
+  border-color: var(--gs-primary-hover);
+  color: var(--gs-on-primary);
+}
+
+.btn-gs-outline {
+  background-color: transparent;
+  border: 1px solid var(--gs-primary);
+  color: var(--gs-primary);
+}
+
+.btn-gs-outline:hover,
+.btn-gs-outline:focus {
+  background-color: var(--gs-primary);
+  color: var(--gs-on-primary);
+}
+
+/* ==========================================================================
+   Cartes GS
+   ========================================================================== */
+
+.card-gs {
+  background-color: var(--gs-blanc);
+  border: var(--gs-bordure);
+  border-radius: var(--gs-radius-lg);
+  box-shadow: var(--gs-ombre-carte);
+  padding: 2rem;
+  height: 100%;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card-gs:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--gs-ombre-carte-hover);
+}
+
+/* Pastille d'icône réutilisable (cartes, services...) */
+.gs-icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--gs-radius);
+  font-size: 1.5rem;
+  color: var(--gs-on-primary);
+  background-color: var(--gs-primary);
 }
