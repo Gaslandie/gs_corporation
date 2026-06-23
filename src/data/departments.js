@@ -1,13 +1,14 @@
 // Départements (sociétés) du groupe GS Corporation.
 // Chaque département référence une classe de thème définie dans globals.css
 // (theme-consulting, theme-logistique, etc.) pour centraliser les couleurs.
+// Descriptions fidèles au document client D1.
 
 const departments = [
   {
     name: "GS Consulting",
     slug: "gs-consulting",
     description:
-      "Conseil stratégique, accompagnement et expertise pour les entreprises et institutions.",
+      "Formation, consulting, coaching et gestion de carrière professionnelle.",
     theme: "theme-consulting",
     icon: "bi-graph-up-arrow",
     href: "/departements/gs-consulting",
@@ -16,7 +17,7 @@ const departments = [
     name: "GS Logistique",
     slug: "gs-logistique",
     description:
-      "Transport, approvisionnement et solutions logistiques fiables sur tout le territoire.",
+      "Gestion de stock, location d’engins roulants et solutions logistiques adaptées.",
     theme: "theme-logistique",
     icon: "bi-truck",
     href: "/departements/gs-logistique",
@@ -25,7 +26,7 @@ const departments = [
     name: "GS Immobilier",
     slug: "gs-immobilier",
     description:
-      "Construction, gestion et valorisation de biens immobiliers de qualité.",
+      "Location et vente de bâtiments, construction, rénovation et gestion immobilière.",
     theme: "theme-immobilier",
     icon: "bi-buildings",
     href: "/departements/gs-immobilier",
@@ -34,7 +35,7 @@ const departments = [
     name: "GS Agrobusiness",
     slug: "gs-agrobusiness",
     description:
-      "Agriculture moderne, production et valorisation des ressources agricoles.",
+      "Transformation agricole, semences, intrants agricoles, machines et techniques agricoles.",
     theme: "theme-agrobusiness",
     icon: "bi-tree",
     href: "/departements/gs-agrobusiness",
@@ -43,7 +44,7 @@ const departments = [
     name: "Les Foreurs de Guinée",
     slug: "les-foreurs-de-guinee",
     description:
-      "Forage, hydraulique et travaux spécialisés au service des communautés.",
+      "Forage de puits d’eau, construction de margelles et accès fiable à l’eau.",
     theme: "theme-foreurs",
     icon: "bi-cone-striped",
     href: "/departements/les-foreurs-de-guinee",

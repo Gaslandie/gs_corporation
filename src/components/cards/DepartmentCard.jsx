@@ -2,9 +2,10 @@ import Link from "next/link";
 
 // Carte d'un département du groupe.
 // La classe de thème (dept.theme) surcharge --gs-primary pour adapter les couleurs.
-export default function DepartmentCard({ department }) {
+// Sur l'accueil, on passe themed={false} pour conserver les couleurs corporate.
+export default function DepartmentCard({ department, themed = true }) {
   return (
-    <div className={`card-gs d-flex flex-column ${department.theme}`}>
+    <div className={`card-gs d-flex flex-column ${themed ? department.theme : ""}`}>
       <span className="gs-icon-badge mb-3">
         <i className={`bi ${department.icon}`} aria-hidden="true"></i>
       </span>

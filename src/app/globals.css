@@ -89,6 +89,13 @@ body {
   --gs-accent: var(--gs-gris);
 }
 
+/* Variante sobre : passe la couleur primaire en bleu marine.
+   Utile sur l'accueil pour réserver le rouge aux zones d'action. */
+.gs-navy-accent {
+  --gs-primary: var(--gs-bleu-marine);
+  --gs-primary-hover: var(--gs-bleu-marine-clair);
+}
+
 /* ==========================================================================
    Sections (éviter que les sections se touchent + rythme vertical)
    ========================================================================== */
@@ -176,4 +183,75 @@ body {
   font-size: 1.5rem;
   color: var(--gs-on-primary);
   background-color: var(--gs-primary);
+}
+
+/* ==========================================================================
+   Décorations inspirées du logo (cercle gris + courbe), discrètes
+   ========================================================================== */
+
+/* Hero : formes décoratives en fond (cercle + halo rouge) */
+.gs-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.gs-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.gs-hero::before {
+  content: "";
+  position: absolute;
+  top: -130px;
+  right: -110px;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  border: 40px solid rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+}
+
+.gs-hero::after {
+  content: "";
+  position: absolute;
+  bottom: -150px;
+  left: -90px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: rgba(192, 25, 46, 0.18);
+  pointer-events: none;
+}
+
+/* Monogramme « GS » (cercle gris, lettres bleu marine, arc rouge) */
+.gs-monogram {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  max-width: 340px;
+  margin-inline: auto;
+  border-radius: 50%;
+  background: var(--gs-gris-clair);
+  border: 1px solid rgba(13, 34, 64, 0.08);
+}
+
+.gs-monogram span {
+  font-weight: 800;
+  font-size: clamp(3rem, 10vw, 5rem);
+  letter-spacing: 0.05em;
+  color: var(--gs-bleu-marine);
+}
+
+.gs-monogram::after {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  border-top-color: var(--gs-rouge);
+  border-right-color: var(--gs-rouge);
+  transform: rotate(-45deg);
 }

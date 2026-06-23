@@ -5,6 +5,8 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import "./globals.css";
 
 import BootstrapClient from "@/components/BootstrapClient";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 export const metadata = {
   title: "GS Corporation",
@@ -16,7 +18,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fr">
       <body className="d-flex flex-column min-vh-100">
+        <Navbar />
         {children}
+        <Footer />
         <BootstrapClient />
       </body>
     </html>
