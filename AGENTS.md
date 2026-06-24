@@ -66,14 +66,18 @@ Le rendu doit être :
 
 Chaque page doit respecter les couleurs du logo ou du document correspondant.
 
-Thèmes à respecter :
+Thèmes à respecter (chaque département suit son logo / document client) :
 
-- GS Corporation : rouge, gris, blanc, bleu marine ;
+- GS Corporation : rouge, bleu marine, gris, blanc ;
 - GS Consulting : bleu marine, jaune, blanc ;
-- GS Logistique : bleu marine, orange, blanc ;
-- GS Immobilier : bleu marine, marron/or, blanc ;
-- GS Agrobusiness : vert, blanc ;
-- Les Foreurs de Guinée : rouge, gris, blanc.
+- GS Logistique : bleu marine, orange, gris, blanc ;
+- GS Immobilier : bleu marine, marron/or, gris, blanc ;
+- GS Agrobusiness : vert, bleu marine, gris, blanc ;
+- Les Foreurs de Guinée : bleu ciel/cyan, bleu pétrole foncé, marron/or, gris, blanc.
+
+Note : Les Foreurs de Guinée n'utilise plus le rouge (mise à jour selon le document client).
+
+Les couleurs de chaque département sont centralisées dans les classes de thème de `src/app/globals.css` (`theme-consulting`, `theme-logistique`, `theme-immobilier`, `theme-agrobusiness`, `theme-foreurs`).
 
 ## UI / UX
 
