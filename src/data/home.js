@@ -5,7 +5,7 @@
 const home = {
   hero: {
     // Image de fond du hero (photo réelle dans public/).
-    image: "/gs_hero.jpg",
+    image: "/gs_hero.webp",
     title: "GS CORPORATION",
     subtitle:
       "Entreprise multisectorielle dédiée à la création de valeur à long terme",

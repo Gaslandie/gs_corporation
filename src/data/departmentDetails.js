@@ -7,7 +7,7 @@ const departmentDetails = {
     slug: "consulting",
     name: "GS Consulting",
     theme: "theme-consulting", // bleu marine + jaune + blanc
-    heroImage: "/consulting_hero.jpg",
+    heroImage: "/consulting_hero.webp",
     tagline: "Votre partenaire pour l’excellence professionnelle",
     heroIntro:
       "Bienvenue chez GS Consulting : votre partenaire pour l’excellence professionnelle.",
@@ -86,7 +86,7 @@ const departmentDetails = {
     slug: "logistique",
     name: "GS Logistique",
     theme: "theme-logistique", // bleu marine + orange + gris + blanc
-    heroImage: "/logistique_hero.jpg",
+    heroImage: "/logistique_hero.webp",
     tagline:
       "Des solutions logistiques taillées sur mesure pour répondre à vos besoins",
     heroIntro: "Votre partenaire en mouvement.",
@@ -190,7 +190,7 @@ const departmentDetails = {
     slug: "immobilier",
     name: "GS Immobilier",
     theme: "theme-immobilier", // bleu marine + marron/or + gris + blanc
-    heroImage: "/immo_hero.jpg",
+    heroImage: "/immo_hero.webp",
     tagline: "Créez, investissez, transformez.",
     heroIntro: "Votre partenaire pour créer, investir et transformer.",
     presentation:
@@ -297,7 +297,7 @@ const departmentDetails = {
     slug: "agrobusiness",
     name: "GS Agrobusiness",
     theme: "theme-agrobusiness", // vert + bleu marine + gris + blanc
-    heroImage: "/AGROBUSINESS_HERO.jpg",
+    heroImage: "/AGROBUSINESS_HERO.webp",
     tagline: "Nourrir le monde, créer des opportunités.",
     heroIntro:
       "Des solutions agricoles modernes pour répondre aux besoins de l’agriculture moderne.",
@@ -400,7 +400,7 @@ const departmentDetails = {
     slug: "foreurs-guinee",
     name: "Les Foreurs de Guinée",
     theme: "theme-foreurs", // bleu ciel/cyan + bleu pétrole + marron/or + gris + blanc
-    heroImage: "/forage_hero.jpg",
+    heroImage: "/forage_hero.webp",
     tagline: "Un accès fiable à l’eau potable et durable.",
     heroIntro:
       "Des solutions de forage fiables pour répondre aux besoins en eau potable, agricoles, miniers et communautaires.",
