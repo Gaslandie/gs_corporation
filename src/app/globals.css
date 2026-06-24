@@ -384,6 +384,38 @@ body {
   color: var(--gs-primary);
 }
 
+/* Couverture « placeholder » des cartes de réalisation (image abstraite). */
+.gs-project-cover {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 170px;
+  color: #fff;
+  background: linear-gradient(
+    135deg,
+    var(--gs-bleu-marine),
+    var(--gs-bleu-marine-clair)
+  );
+}
+
+.gs-project-cover > i {
+  font-size: 3rem;
+  opacity: 0.92;
+}
+
+.gs-project-cover .gs-project-cat {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: var(--gs-rouge);
+}
+
 /* Monogramme « GS » (cercle gris, lettres bleu marine, arc rouge) */
 .gs-monogram {
   position: relative;
