@@ -289,6 +289,108 @@ const departmentDetails = {
 
     quote: "Créez, investissez, transformez.",
   },
+
+  agrobusiness: {
+    slug: "agrobusiness",
+    name: "GS Agrobusiness",
+    theme: "theme-agrobusiness", // vert + bleu marine + gris + blanc
+    tagline: "Nourrir le monde, créer des opportunités.",
+    heroIntro:
+      "Des solutions agricoles modernes pour répondre aux besoins de l’agriculture moderne.",
+    presentation:
+      "Bienvenue dans le département Agrobusiness de GS Corporation. Notre engagement envers l’agriculture, la sécurité alimentaire et le développement durable nous pousse à offrir une gamme de services complets pour répondre aux besoins de l’agriculture moderne.",
+
+    highlight: {
+      icon: "bi-globe-americas",
+      title: "Notre engagement",
+      text: "Chez GS Corporation, nous croyons que l’agriculture est essentielle à la vie et à l’avenir de notre planète. Notre engagement est de contribuer à l’amélioration de la productivité agricole, de promouvoir la durabilité et de soutenir nos clients dans leur réussite dans le secteur agroalimentaire.",
+    },
+
+    expertiseEyebrow: "Nos prestations",
+    expertiseTitle: "Nos services principaux",
+    expertise: [
+      {
+        icon: "bi-diagram-3",
+        title: "Gestion de projet agricole",
+        description:
+          "Nous collaborons avec des agriculteurs, des entreprises et des organisations pour gérer des projets agricoles à grande échelle, de la planification à la mise en œuvre. Notre expertise garantit des opérations agricoles efficaces et productives.",
+      },
+      {
+        icon: "bi-basket3",
+        title: "Vente de produits agricoles",
+        description:
+          "Nous proposons une gamme variée de produits agricoles de haute qualité, qu’il s’agisse de céréales, de fruits, de légumes, de viande ou d’autres produits. Notre objectif est de mettre des aliments de qualité sur votre table.",
+      },
+      {
+        icon: "bi-flower2",
+        title: "Vente de semences",
+        description:
+          "Les semences sont la base de l’agriculture. Nous fournissons des semences de qualité supérieure, adaptées aux besoins spécifiques de votre culture, pour garantir des récoltes fructueuses.",
+      },
+      {
+        icon: "bi-chat-square-text",
+        title: "Conseils agricoles",
+        description:
+          "Notre équipe d’experts agricoles offre des conseils personnalisés pour aider les agriculteurs et les entreprises à maximiser leur rendement, à améliorer leurs pratiques agricoles et à relever les défis actuels du secteur.",
+      },
+      {
+        icon: "bi-bag-check",
+        title: "Vente d’intrants agricoles",
+        description:
+          "Nous comprenons l’importance cruciale des intrants agricoles de qualité pour une agriculture prospère. C’est pourquoi nous mettons à votre disposition une gamme complète d’intrants agricoles pour soutenir les agriculteurs dans leur quête de rendements exceptionnels et durables.",
+      },
+    ],
+
+    lists: [
+      {
+        eyebrow: "Nos secteurs",
+        title: "Domaines agricoles",
+        icon: "bi-tree",
+        items: [
+          "Agriculture moderne",
+          "Sécurité alimentaire",
+          "Développement durable",
+          "Productivité agricole",
+          "Agroalimentaire",
+        ],
+      },
+      {
+        eyebrow: "Notre offre",
+        title: "Produits et solutions",
+        icon: "bi-check2-circle",
+        items: [
+          "Produits agricoles",
+          "Semences",
+          "Intrants agricoles",
+          "Conseils personnalisés",
+          "Projets agricoles",
+        ],
+      },
+    ],
+
+    whyChoose: [
+      {
+        icon: "bi-basket",
+        title: "Solutions agricoles complètes",
+        description:
+          "Une gamme de services couvrant toute la chaîne agricole, de la production à la vente.",
+      },
+      {
+        icon: "bi-people",
+        title: "Accompagnement des producteurs et organisations",
+        description:
+          "Un soutien aux agriculteurs, entreprises et organisations à chaque étape de leurs projets.",
+      },
+      {
+        icon: "bi-recycle",
+        title: "Engagement pour la productivité et la durabilité",
+        description:
+          "Améliorer les rendements tout en promouvant une agriculture durable et responsable.",
+      },
+    ],
+
+    quote: "Nourrir le monde, créer des opportunités.",
+  },
 };
 
 export default departmentDetails;

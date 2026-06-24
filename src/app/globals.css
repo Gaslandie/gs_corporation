@@ -78,9 +78,9 @@ body {
 }
 
 .theme-agrobusiness {
-  --gs-primary: #1f7a3d; /* vert */
-  --gs-primary-hover: #165c2d;
-  --gs-accent: #1f7a3d;
+  --gs-primary: #14532d; /* vert foncé (grandes zones, hero) */
+  --gs-primary-hover: #0f3d22;
+  --gs-accent: #2f9e44; /* vert vif (accents, badges, boutons) */
 }
 
 .theme-foreurs {
