@@ -15,6 +15,7 @@ export default function DepartmentPageTemplate({ data }) {
     tagline,
     heroIntro,
     presentation,
+    highlight,
     expertise = [],
     expertiseEyebrow = "Notre savoir-faire",
     expertiseTitle = "Domaines d’expertise",
@@ -37,6 +38,33 @@ export default function DepartmentPageTemplate({ data }) {
             <div className="col-12 col-lg-9 text-center">
               <SectionTitle eyebrow="Présentation" title={`À propos de ${name}`} />
               <p className="fs-5 text-secondary mb-0">{presentation}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    ));
+  }
+
+  if (highlight) {
+    blocks.push((bg) => (
+      <section className={`section-padding ${bg}`} key="highlight">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-12 col-lg-9">
+              <div className="card-gs gs-highlight d-flex flex-column flex-md-row align-items-md-center gap-3">
+                <i
+                  className={`bi ${highlight.icon || "bi-patch-check"} gs-highlight-icon`}
+                  aria-hidden="true"
+                ></i>
+                <div>
+                  {highlight.title && (
+                    <h2 className="h4 fw-bold mb-2" style={{ color: "var(--gs-bleu-marine)" }}>
+                      {highlight.title}
+                    </h2>
+                  )}
+                  <p className="mb-0 text-secondary">{highlight.text}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

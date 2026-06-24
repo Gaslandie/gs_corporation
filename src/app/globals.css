@@ -343,6 +343,18 @@ body {
   margin-top: 1rem;
 }
 
+/* Encart de mise en valeur (engagement, message fort...). */
+.gs-highlight {
+  border-left: 4px solid var(--gs-accent);
+}
+
+.gs-highlight-icon {
+  font-size: 2.5rem;
+  color: var(--gs-accent);
+  flex-shrink: 0;
+  line-height: 1;
+}
+
 /* Monogramme « GS » (cercle gris, lettres bleu marine, arc rouge) */
 .gs-monogram {
   position: relative;

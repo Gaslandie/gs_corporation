@@ -183,6 +183,112 @@ const departmentDetails = {
     quote:
       "Des solutions logistiques taillées sur mesure pour répondre à vos besoins.",
   },
+
+  immobilier: {
+    slug: "immobilier",
+    name: "GS Immobilier",
+    theme: "theme-immobilier", // bleu marine + marron/or + gris + blanc
+    tagline: "Créez, investissez, transformez.",
+    heroIntro: "Votre partenaire pour créer, investir et transformer.",
+    presentation:
+      "Bienvenue dans le département immobilier de GS Corporation. Notre équipe dédiée est là pour vous accompagner dans tous les aspects de la gestion de vos biens immobiliers, de la conception à la maintenance.",
+
+    highlight: {
+      icon: "bi-patch-check",
+      title: "Notre engagement",
+      text: "Chez GS Corporation, nous croyons en la valeur durable de l’immobilier. Notre engagement envers nos clients est de fournir des solutions immobilières complètes, répondant à leurs besoins spécifiques et contribuant à la création de communautés dynamiques.",
+    },
+
+    expertiseEyebrow: "Nos prestations",
+    expertiseTitle: "Nos services principaux",
+    expertise: [
+      {
+        icon: "bi-building",
+        title: "Location et vente de bâtiments et terrains",
+        description:
+          "Nous vous proposons un vaste portefeuille de biens immobiliers, qu’il s’agisse de bâtiments commerciaux, de terrains à développer, de propriétés résidentielles ou d’investissements immobiliers.",
+      },
+      {
+        icon: "bi-hammer",
+        title: "Construction et rénovation",
+        description:
+          "De la conception à la réalisation, nous construisons des bâtiments exceptionnels et rénovons des biens pour qu’ils répondent à vos besoins et aux normes les plus élevées.",
+      },
+      {
+        icon: "bi-clipboard-data",
+        title: "Conseil et expertise immobilière",
+        description:
+          "Nos experts immobiliers vous guident dans la prise de décisions éclairées en matière d’investissements immobiliers.",
+      },
+      {
+        icon: "bi-briefcase",
+        title: "Gestion immobilière",
+        description:
+          "Simplifiez la gestion de vos biens grâce à notre service de gestion immobilière. Nous prenons en charge les aspects administratifs, de maintenance et de location.",
+      },
+      {
+        icon: "bi-map",
+        title: "Aménagement et lotissement",
+        description:
+          "Transformez des terrains bruts en quartiers résidentiels ou zones commerciales. Notre expertise en aménagement du territoire crée des espaces fonctionnels et attrayants.",
+      },
+      {
+        icon: "bi-flower1",
+        title: "Décoration d’intérieur et aménagement d’espaces verts",
+        description:
+          "Créez des intérieurs élégants et des espaces extérieurs verdoyants grâce à nos services de décoration et d’aménagement paysager.",
+      },
+    ],
+
+    lists: [
+      {
+        eyebrow: "Notre portefeuille",
+        title: "Types de biens",
+        icon: "bi-house-door",
+        items: [
+          "Bâtiments commerciaux",
+          "Terrains à développer",
+          "Propriétés résidentielles",
+          "Investissements immobiliers",
+        ],
+      },
+      {
+        eyebrow: "De A à Z",
+        title: "Accompagnement",
+        icon: "bi-arrow-right-circle",
+        items: [
+          "Conception",
+          "Réalisation",
+          "Maintenance",
+          "Location",
+          "Gestion administrative",
+        ],
+      },
+    ],
+
+    whyChoose: [
+      {
+        icon: "bi-houses",
+        title: "Solutions immobilières complètes",
+        description:
+          "Des prestations couvrant l’ensemble de vos besoins immobiliers, de l’achat à la gestion.",
+      },
+      {
+        icon: "bi-arrow-repeat",
+        title: "Accompagnement de la conception à la maintenance",
+        description:
+          "Un suivi continu et coordonné à chaque étape de votre projet immobilier.",
+      },
+      {
+        icon: "bi-lightbulb",
+        title: "Conseil pour des décisions éclairées",
+        description:
+          "L’expertise nécessaire pour investir et valoriser vos biens en toute confiance.",
+      },
+    ],
+
+    quote: "Créez, investissez, transformez.",
+  },
 };
 
 export default departmentDetails;
