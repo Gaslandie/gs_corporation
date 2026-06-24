@@ -2,6 +2,7 @@ import Link from "next/link";
 import SectionTitle from "@/components/sections/SectionTitle";
 import ServiceCard from "@/components/cards/ServiceCard";
 import ContactCTA from "@/components/sections/ContactCTA";
+import { asset } from "@/lib/assetPath";
 
 // Modèle réutilisable pour les pages département.
 // Chaque section est rendue seulement si la donnée existe → le même composant
@@ -178,7 +179,7 @@ export default function DepartmentPageTemplate({ data }) {
   // Hero : photo de fond + overlay si heroImage, sinon aplat de couleur du thème.
   const heroClass = `section-padding text-white text-center${heroImage ? " gs-dept-hero" : ""}`;
   const heroStyle = heroImage
-    ? { "--gs-hero-image": `url(${heroImage})` }
+    ? { "--gs-hero-image": `url(${asset(heroImage)})` }
     : { backgroundColor: "var(--gs-primary)" };
 
   return (

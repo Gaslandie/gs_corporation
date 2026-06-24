@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { asset } from "@/lib/assetPath";
 
 // Section d'en-tête (hero) corporate de type bannière :
 // grande image de fond + overlay sombre + titre centré + bouton + bloc rouge.
@@ -18,7 +19,7 @@ export default function HeroSection({
   secondaryAction,
   infoBlocks = [],
 }) {
-  const style = image ? { "--gs-hero-image": `url(${image})` } : undefined;
+  const style = image ? { "--gs-hero-image": `url(${asset(image)})` } : undefined;
 
   return (
     <section className="gs-hero text-white" style={style}>
