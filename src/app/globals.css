@@ -334,6 +334,15 @@ body {
   color: var(--gs-accent);
 }
 
+/* Petite ligne décorative en couleur d'accent (rappel du logo / de la courbe). */
+.gs-accent-line {
+  width: 64px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--gs-accent);
+  margin-top: 1rem;
+}
+
 /* Monogramme « GS » (cercle gris, lettres bleu marine, arc rouge) */
 .gs-monogram {
   position: relative;

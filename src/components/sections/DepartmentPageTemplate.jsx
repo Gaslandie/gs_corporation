@@ -4,9 +4,10 @@ import ServiceCard from "@/components/cards/ServiceCard";
 import ContactCTA from "@/components/sections/ContactCTA";
 
 // Modèle réutilisable pour les pages département.
-// Toutes les sections sont rendues seulement si la donnée correspondante existe,
-// afin que le même composant serve à tous les départements.
-// La classe de thème (data.theme) pilote les couleurs (primary / accent).
+// Chaque section est rendue seulement si la donnée existe → le même composant
+// sert à tous les départements. La classe de thème (data.theme) pilote les
+// couleurs (primary / accent). Les sections de corps alternent fond blanc /
+// gris clair automatiquement, quel que soit le nombre de sections présentes.
 export default function DepartmentPageTemplate({ data }) {
   const {
     name,
@@ -15,23 +16,128 @@ export default function DepartmentPageTemplate({ data }) {
     heroIntro,
     presentation,
     expertise = [],
-    subjects = [],
+    expertiseEyebrow = "Notre savoir-faire",
+    expertiseTitle = "Domaines d’expertise",
+    lists = [],
     values = [],
     whyChoose = [],
+    whyChooseIntro,
     quote,
   } = data;
+
+  // Sections de corps (entre le hero et la citation) : on les empile dans
+  // l'ordre puis on leur applique un fond alterné (blanc / section-muted).
+  const blocks = [];
+
+  if (presentation) {
+    blocks.push((bg) => (
+      <section className={`section-padding ${bg}`} key="presentation">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-12 col-lg-9 text-center">
+              <SectionTitle eyebrow="Présentation" title={`À propos de ${name}`} />
+              <p className="fs-5 text-secondary mb-0">{presentation}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    ));
+  }
+
+  if (expertise.length > 0) {
+    blocks.push((bg) => (
+      <section className={`section-padding ${bg}`} key="expertise">
+        <div className="container gs-accent-badges">
+          <SectionTitle eyebrow={expertiseEyebrow} title={expertiseTitle} />
+          <div className="row g-4">
+            {expertise.map((item) => (
+              <div className="col-12 col-md-6 col-lg-4" key={item.title}>
+                <ServiceCard service={item} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    ));
+  }
+
+  lists.forEach((list, index) => {
+    blocks.push((bg) => (
+      <section className={`section-padding ${bg}`} key={`list-${index}`}>
+        <div className="container text-center">
+          <SectionTitle eyebrow={list.eyebrow} title={list.title} subtitle={list.subtitle} />
+          <div className="d-flex flex-wrap gap-3 justify-content-center">
+            {list.items.map((item) => (
+              <span className="gs-chip" key={item}>
+                <i className={`bi ${list.icon || "bi-check2-circle"}`} aria-hidden="true"></i>
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+    ));
+  });
+
+  if (values.length > 0) {
+    blocks.push((bg) => (
+      <section className={`section-padding ${bg}`} key="values">
+        <div className="container gs-accent-badges">
+          <SectionTitle eyebrow="Nos valeurs" title="Ce qui nous anime" />
+          <div className="row g-4 justify-content-center">
+            {values.map((value) => (
+              <div className="col-6 col-md-3" key={value.label}>
+                <div className="card-gs text-center h-100">
+                  <span className="gs-icon-badge mb-3">
+                    <i className={`bi ${value.icon}`} aria-hidden="true"></i>
+                  </span>
+                  <p className="fw-semibold mb-0" style={{ color: "var(--gs-bleu-marine)" }}>
+                    {value.label}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    ));
+  }
+
+  if (whyChoose.length > 0) {
+    blocks.push((bg) => (
+      <section className={`section-padding ${bg}`} key="why">
+        <div className="container gs-accent-badges">
+          <SectionTitle
+            eyebrow="Pourquoi nous"
+            title={`Pourquoi choisir ${name} ?`}
+            subtitle={whyChooseIntro}
+          />
+          <div className="row g-4">
+            {whyChoose.map((item) => (
+              <div className="col-12 col-md-6 col-lg-4" key={item.title}>
+                <ServiceCard service={item} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    ));
+  }
 
   return (
     <main className={theme}>
       {/* Hero / en-tête du département */}
       <section className="section-padding text-white text-center" style={{ backgroundColor: "var(--gs-primary)" }}>
         <div className="container">
-          {tagline && (
-            <span className="badge rounded-pill mb-3 px-3 py-2 gs-badge-accent">{tagline}</span>
-          )}
           <h1 className="fw-bold mb-0">{name}</h1>
+          <div className="gs-accent-line mx-auto"></div>
+          {tagline && (
+            <p className="lead fw-semibold mx-auto mt-3 mb-0" style={{ maxWidth: "720px" }}>
+              {tagline}
+            </p>
+          )}
           {heroIntro && (
-            <p className="lead text-white-50 mx-auto mt-3" style={{ maxWidth: "760px" }}>
+            <p className="text-white-50 mx-auto mt-2" style={{ maxWidth: "680px" }}>
               {heroIntro}
             </p>
           )}
@@ -46,91 +152,8 @@ export default function DepartmentPageTemplate({ data }) {
         </div>
       </section>
 
-      {/* Présentation */}
-      {presentation && (
-        <section className="section-padding">
-          <div className="container">
-            <div className="row justify-content-center">
-              <div className="col-12 col-lg-9 text-center">
-                <SectionTitle eyebrow="Présentation" title={`À propos de ${name}`} />
-                <p className="fs-5 text-secondary mb-0">{presentation}</p>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Domaines d'expertise */}
-      {expertise.length > 0 && (
-        <section className="section-padding section-muted">
-          <div className="container gs-accent-badges">
-            <SectionTitle eyebrow="Notre savoir-faire" title="Domaines d’expertise" />
-            <div className="row g-4">
-              {expertise.map((item) => (
-                <div className="col-12 col-md-6 col-lg-4" key={item.title}>
-                  <ServiceCard service={item} />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Liste de services / sujets */}
-      {subjects.length > 0 && (
-        <section className="section-padding">
-          <div className="container text-center">
-            <SectionTitle eyebrow="Programmes" title="Nos principaux sujets" />
-            <div className="d-flex flex-wrap gap-3 justify-content-center">
-              {subjects.map((subject) => (
-                <span className="gs-chip" key={subject}>
-                  <i className="bi bi-check2-circle" aria-hidden="true"></i>
-                  {subject}
-                </span>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Valeurs */}
-      {values.length > 0 && (
-        <section className="section-padding section-muted">
-          <div className="container gs-accent-badges">
-            <SectionTitle eyebrow="Nos valeurs" title="Ce qui nous anime" />
-            <div className="row g-4 justify-content-center">
-              {values.map((value) => (
-                <div className="col-6 col-md-3" key={value.label}>
-                  <div className="card-gs text-center h-100">
-                    <span className="gs-icon-badge mb-3">
-                      <i className={`bi ${value.icon}`} aria-hidden="true"></i>
-                    </span>
-                    <p className="fw-semibold mb-0" style={{ color: "var(--gs-bleu-marine)" }}>
-                      {value.label}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Pourquoi choisir */}
-      {whyChoose.length > 0 && (
-        <section className="section-padding">
-          <div className="container gs-accent-badges">
-            <SectionTitle eyebrow="Pourquoi nous" title={`Pourquoi choisir ${name} ?`} />
-            <div className="row g-4">
-              {whyChoose.map((item) => (
-                <div className="col-12 col-md-6 col-lg-4" key={item.title}>
-                  <ServiceCard service={item} />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      {/* Sections de corps (fond alterné) */}
+      {blocks.map((render, index) => render(index % 2 === 0 ? "" : "section-muted"))}
 
       {/* Citation */}
       {quote && (

@@ -34,12 +34,19 @@ const departmentDetails = {
       },
     ],
 
-    subjects: [
-      "Logiciel comptable",
-      "Gestion administrative",
-      "Marketing",
-      "Communication",
-      "Anglais",
+    lists: [
+      {
+        eyebrow: "Programmes",
+        title: "Nos principaux sujets",
+        icon: "bi-check2-circle",
+        items: [
+          "Logiciel comptable",
+          "Gestion administrative",
+          "Marketing",
+          "Communication",
+          "Anglais",
+        ],
+      },
     ],
 
     values: [
@@ -72,6 +79,109 @@ const departmentDetails = {
 
     quote:
       "Développe une passion pour l’apprentissage... Si tu le fais, tu ne cesseras jamais de grandir.",
+  },
+
+  logistique: {
+    slug: "logistique",
+    name: "GS Logistique",
+    theme: "theme-logistique", // bleu marine + orange + gris + blanc
+    tagline:
+      "Des solutions logistiques taillées sur mesure pour répondre à vos besoins",
+    heroIntro: "Votre partenaire en mouvement.",
+    presentation:
+      "Chez GS Logistique, nous sommes plus qu’une entreprise de logistique ; nous sommes votre partenaire en mouvement. Depuis nos débuts, nous nous sommes consacrés à la mission de simplifier le monde de la chaîne d’approvisionnement.",
+
+    expertiseEyebrow: "Nos prestations",
+    expertiseTitle: "Nos services principaux",
+    expertise: [
+      {
+        icon: "bi-box-seam",
+        title: "Gestion des stocks",
+        description:
+          "Faites l’inventaire et approvisionnez votre stock sans perdre de temps.",
+      },
+      {
+        icon: "bi-truck-front",
+        title: "Location de véhicules",
+        description:
+          "Nous mettons à votre disposition des modèles variés de véhicules pour vos courses, vos transports et autres besoins : pick-up, camionnettes et véhicules utilitaires.",
+      },
+      {
+        icon: "bi-truck",
+        title: "Location d’engins lourds",
+        description:
+          "Nous mettons à votre disposition des engins modernes, nécessaires aux travaux de terrassement, d’assainissement, de levage, de manutention et autres besoins dans les secteurs du BTP, industriels et portuaires.",
+      },
+      {
+        icon: "bi-tools",
+        title: "Vente de fournitures, matériels et équipements",
+        description:
+          "Découvrez une large gamme d’outils, d’accessoires et de fournitures pour vous accompagner dans toutes vos tâches du quotidien.",
+      },
+    ],
+
+    lists: [
+      {
+        eyebrow: "Notre processus",
+        title: "Nos missions",
+        icon: "bi-arrow-right-circle",
+        items: ["Réceptionner", "Stocker", "Préparer", "Expédier", "Livrer"],
+      },
+      {
+        eyebrow: "Suivi",
+        title: "Gestion de stock",
+        icon: "bi-clipboard-check",
+        items: [
+          "Gestion optimale de votre stock",
+          "Gérer vos commandes",
+          "Suivi des ventes",
+          "Édition des factures",
+        ],
+      },
+      {
+        eyebrow: "Parc matériel",
+        title: "Engins disponibles",
+        icon: "bi-gear-wide-connected",
+        items: [
+          "Tractopelles",
+          "Niveleuses",
+          "Compacteurs",
+          "Dames sauteuses",
+          "Manitous",
+          "Camions citernes",
+          "Bulldozers",
+          "Foreuses",
+          "Grue mobile",
+          "Décapeuses",
+        ],
+      },
+    ],
+
+    whyChooseIntro:
+      "Choisissez GS Logistique comme partenaire logistique, et découvrez un service de qualité, une fiabilité inégalée et une équipe dévouée prête à vous accompagner dans chaque étape de votre voyage logistique.",
+    whyChoose: [
+      {
+        icon: "bi-patch-check",
+        title: "Service de qualité",
+        description:
+          "Un niveau d’exigence constant à chaque étape de votre chaîne logistique.",
+      },
+      {
+        icon: "bi-shield-check",
+        title: "Fiabilité inégalée",
+        description:
+          "Des engagements tenus et une disponibilité sur laquelle vous pouvez compter.",
+      },
+      {
+        icon: "bi-people",
+        title: "Équipe dévouée",
+        description:
+          "Une équipe à votre écoute, prête à vous accompagner dans chaque étape de votre projet.",
+      },
+    ],
+
+    quote:
+      "Des solutions logistiques taillées sur mesure pour répondre à vos besoins.",
   },
 };
 
