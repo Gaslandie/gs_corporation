@@ -1,5 +1,7 @@
 // Contenu spécifique à la page Contact (les coordonnées de base — adresse,
-// téléphones, email — restent centralisées dans src/data/siteInfo.js).
+// téléphones, email, réseaux — restent centralisées dans src/data/siteInfo.js).
+
+import siteInfo from "@/data/siteInfo";
 
 const contact = {
   header: {
@@ -11,12 +13,12 @@ const contact = {
 
   whatsapp: {
     label: "Contacter sur WhatsApp",
-    href: "https://wa.me/224623867875",
+    href: siteInfo.social.whatsapp,
   },
 
   facebook: {
-    label: "@gscorporation",
-    href: "https://www.facebook.com/gscorporation",
+    label: siteInfo.social.facebookHandle,
+    href: siteInfo.social.facebook,
   },
 
   // Orientation du visiteur selon son besoin vers le bon département.

@@ -416,6 +416,255 @@ body {
   background-color: var(--gs-rouge);
 }
 
+/* ==========================================================================
+   Navbar (barre utilitaire + navbar principale)
+   ========================================================================== */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
+
+/* Barre utilitaire (téléphone, email, réseaux) au-dessus de la navbar */
+.gs-topbar {
+  background-color: #08182f;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.85rem;
+  padding: 0.45rem 0;
+}
+
+.gs-topbar a {
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.gs-topbar a:hover {
+  color: #fff;
+}
+
+.gs-topbar-social a {
+  font-size: 1rem;
+}
+
+/* Navbar principale */
+.gs-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  background-color: var(--gs-bleu-marine);
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+  transition: box-shadow 0.2s ease, padding 0.2s ease;
+}
+
+.gs-navbar.scrolled {
+  padding-top: 0.45rem;
+  padding-bottom: 0.45rem;
+  box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.28);
+}
+
+/* Marque / logo monogramme (navbar + footer) */
+.gs-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+
+.gs-brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 0.5rem;
+  background-color: var(--gs-rouge);
+  color: #fff;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.gs-brand-text {
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+/* Liens de navigation avec soulignement animé + état actif */
+.gs-nav-link {
+  position: relative;
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-weight: 500;
+  padding: 0.5rem 0.9rem !important;
+  background: none;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.gs-nav-link:hover,
+.gs-nav-link:focus {
+  color: #fff !important;
+}
+
+.gs-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0.9rem;
+  right: 0.9rem;
+  bottom: 0.3rem;
+  height: 2px;
+  background-color: var(--gs-rouge);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+
+.gs-nav-link:hover::after,
+.gs-nav-link.active::after {
+  transform: scaleX(1);
+}
+
+.gs-nav-link.active {
+  color: #fff !important;
+}
+
+.gs-caret {
+  font-size: 0.7rem;
+  transition: transform 0.2s ease;
+}
+
+.gs-caret.open {
+  transform: rotate(180deg);
+}
+
+/* Menu déroulant (desktop) */
+.gs-navbar .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 250px;
+  border: none;
+  border-radius: 0.6rem;
+  box-shadow: var(--gs-ombre-carte);
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+}
+
+.gs-navbar .dropdown-item {
+  border-radius: 0.4rem;
+  padding: 0.55rem 0.75rem;
+  font-weight: 500;
+  color: var(--gs-texte);
+}
+
+.gs-navbar .dropdown-item:hover,
+.gs-navbar .dropdown-item.active {
+  background-color: var(--gs-gris-clair);
+  color: var(--gs-rouge);
+}
+
+/* Adaptations mobile/tablette */
+@media (max-width: 991.98px) {
+  .gs-navbar .navbar-collapse {
+    padding-top: 0.75rem;
+  }
+
+  .gs-nav-link::after {
+    display: none;
+  }
+
+  .gs-navbar .dropdown-menu {
+    position: static;
+    margin-top: 0;
+    padding: 0 0 0 1rem;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .gs-navbar .dropdown-item {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .gs-navbar .dropdown-item:hover,
+  .gs-navbar .dropdown-item.active {
+    background: transparent;
+    color: #fff;
+  }
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.gs-footer {
+  background-color: var(--gs-bleu-marine);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.gs-footer a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.gs-footer a:hover {
+  color: #fff;
+}
+
+.gs-footer-heading {
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  position: relative;
+}
+
+.gs-footer-heading::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 32px;
+  height: 2px;
+  background-color: var(--gs-rouge);
+}
+
+.gs-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1.05rem;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.gs-social:hover {
+  background-color: var(--gs-rouge);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.gs-footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.gs-backtotop {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  font-weight: 500;
+}
+
 /* Monogramme « GS » (cercle gris, lettres bleu marine, arc rouge) */
 .gs-monogram {
   position: relative;
