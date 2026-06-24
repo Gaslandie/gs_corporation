@@ -84,9 +84,18 @@ body {
 }
 
 .theme-foreurs {
-  --gs-primary: var(--gs-rouge);
-  --gs-primary-hover: var(--gs-rouge-fonce);
-  --gs-accent: var(--gs-gris);
+  --gs-primary: #0a2e38; /* bleu pétrole très foncé (grandes zones, hero) */
+  --gs-primary-hover: #07232b;
+  --gs-accent: #17a8c4; /* bleu ciel / cyan (accents, badges, boutons) */
+}
+
+/* Touche secondaire marron/or sur l'encart, sans dominer. */
+.theme-foreurs .gs-highlight {
+  border-left-color: #b8862b;
+}
+
+.theme-foreurs .gs-highlight-icon {
+  color: #b8862b;
 }
 
 /* Variante sobre : passe la couleur primaire en bleu marine.

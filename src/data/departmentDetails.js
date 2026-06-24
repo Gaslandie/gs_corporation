@@ -391,6 +391,143 @@ const departmentDetails = {
 
     quote: "Nourrir le monde, créer des opportunités.",
   },
+
+  foreurs: {
+    slug: "foreurs-guinee",
+    name: "Les Foreurs de Guinée",
+    theme: "theme-foreurs", // bleu ciel/cyan + bleu pétrole + marron/or + gris + blanc
+    tagline: "Un accès fiable à l’eau potable et durable.",
+    heroIntro:
+      "Des solutions de forage fiables pour répondre aux besoins en eau potable, agricoles, miniers et communautaires.",
+    presentation:
+      "Au cœur de GS Corporation, notre département Les Foreurs de Guinée est dédié à l’accomplissement de notre mission : offrir un accès à l’eau potable fiable et durable, ainsi que des solutions de forage pour répondre à un large éventail de besoins, que ce soit dans le domaine de l’eau potable, des forages miniers ou de l’analyse de l’eau et du sol.",
+
+    highlight: {
+      icon: "bi-droplet-half",
+      title: "Notre mission",
+      text: "Chez Les Foreurs de Guinée, notre mission est simple mais cruciale : fournir un accès durable à l’eau potable tout en offrant des solutions de forage de pointe. Nous sommes conscients de l’importance de l’eau en tant que ressource vitale et de la nécessité d’exploiter de manière responsable les ressources pour soutenir le développement.",
+    },
+
+    cardSections: [
+      {
+        eyebrow: "Nos atouts",
+        title: "Ce qui nous distingue",
+        items: [
+          {
+            icon: "bi-people",
+            title: "Expertise",
+            description:
+              "Notre équipe expérimentée de foreurs, géologues et ingénieurs possède une connaissance approfondie des défis uniques liés au forage en Guinée.",
+          },
+          {
+            icon: "bi-shield-check",
+            title: "Engagement envers la qualité et la sécurité",
+            description:
+              "La qualité de notre travail et la sécurité de nos opérations sont au cœur de nos préoccupations. Nous suivons des normes rigoureuses pour garantir la satisfaction des clients et la sécurité de nos équipes.",
+          },
+          {
+            icon: "bi-tree",
+            title: "Responsabilité sociale et environnementale",
+            description:
+              "Nous nous engageons à travailler en étroite collaboration avec les communautés locales, à promouvoir le développement durable et à minimiser notre impact sur l’environnement.",
+          },
+          {
+            icon: "bi-cpu",
+            title: "Innovation technologique",
+            description:
+              "Nous investissons dans les dernières technologies de forage pour offrir des solutions efficaces et durables.",
+          },
+        ],
+      },
+    ],
+
+    expertiseEyebrow: "Nos prestations",
+    expertiseTitle: "Nos services principaux",
+    expertise: [
+      {
+        icon: "bi-droplet",
+        title: "Forage de puits d’eau",
+        description:
+          "Nous avons l’expertise et l’équipement pour mener à bien des projets de forage de puits d’eau, garantissant un approvisionnement en eau propre et sécurisé pour les communautés, les entreprises et les infrastructures.",
+      },
+      {
+        icon: "bi-clipboard-data",
+        title: "Analyse du sol et du sous-sol",
+        description:
+          "La qualité de l’eau et les caractéristiques du sol sont essentielles pour la planification des projets d’accès à l’eau. Nous effectuons des analyses précises pour garantir la conformité aux normes de qualité.",
+      },
+      {
+        icon: "bi-tools",
+        title: "Maintenance de forages",
+        description:
+          "Notre équipe qualifiée assure la maintenance régulière de vos forages, prolongeant leur durée de vie et garantissant leur bon fonctionnement en tout temps.",
+      },
+      {
+        icon: "bi-building",
+        title: "Construction de châteaux d’eau",
+        description:
+          "Nous concevons, construisons et entretenons des châteaux d’eau, une composante essentielle des systèmes de distribution d’eau potable.",
+      },
+      {
+        icon: "bi-arrow-up-circle",
+        title: "Puits améliorés",
+        description:
+          "Nous n’arrêtons pas seulement au forage. Nous améliorons et optimisons les puits existants pour maximiser leur efficacité et leur rendement.",
+      },
+    ],
+
+    lists: [
+      {
+        eyebrow: "Nos champs d’action",
+        title: "Domaines d’intervention",
+        icon: "bi-water",
+        items: [
+          "Eau potable",
+          "Forages miniers",
+          "Analyse de l’eau",
+          "Analyse du sol",
+          "Projets communautaires",
+          "Besoins agricoles",
+        ],
+      },
+      {
+        eyebrow: "De A à Z",
+        title: "Accompagnement",
+        icon: "bi-arrow-right-circle",
+        items: [
+          "Étude du besoin",
+          "Analyse du terrain",
+          "Forage",
+          "Sécurisation du point d’eau",
+          "Maintenance",
+          "Suivi du projet",
+        ],
+      },
+    ],
+
+    whyChoose: [
+      {
+        icon: "bi-geo-alt",
+        title: "Expertise locale en forage",
+        description:
+          "Une connaissance fine du terrain guinéen et de ses défis spécifiques.",
+      },
+      {
+        icon: "bi-shield-check",
+        title: "Qualité, sécurité et normes rigoureuses",
+        description:
+          "Des standards élevés pour des opérations fiables et sécurisées.",
+      },
+      {
+        icon: "bi-droplet-half",
+        title: "Solutions durables et responsables",
+        description:
+          "Un accès à l’eau pensé pour durer, dans le respect des communautés et de l’environnement.",
+      },
+    ],
+
+    quote: "Un accès fiable à l’eau pour accompagner le développement.",
+  },
 };
 
 export default departmentDetails;

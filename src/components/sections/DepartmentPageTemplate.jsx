@@ -16,6 +16,7 @@ export default function DepartmentPageTemplate({ data }) {
     heroIntro,
     presentation,
     highlight,
+    cardSections = [],
     expertise = [],
     expertiseEyebrow = "Notre savoir-faire",
     expertiseTitle = "Domaines d’expertise",
@@ -71,6 +72,27 @@ export default function DepartmentPageTemplate({ data }) {
       </section>
     ));
   }
+
+  cardSections.forEach((sectionData, index) => {
+    blocks.push((bg) => (
+      <section className={`section-padding ${bg}`} key={`cards-${index}`}>
+        <div className="container gs-accent-badges">
+          <SectionTitle
+            eyebrow={sectionData.eyebrow}
+            title={sectionData.title}
+            subtitle={sectionData.subtitle}
+          />
+          <div className="row g-4">
+            {sectionData.items.map((item) => (
+              <div className="col-12 col-sm-6 col-lg-3" key={item.title}>
+                <ServiceCard service={item} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    ));
+  });
 
   if (expertise.length > 0) {
     blocks.push((bg) => (
