@@ -16,12 +16,12 @@ export default function Home() {
     <main>
       {/* Hero corporate */}
       <HeroSection
-        eyebrow={home.hero.eyebrow}
+        image={home.hero.image}
         title={home.hero.title}
-        lead={home.hero.lead}
         subtitle={home.hero.subtitle}
+        text={home.hero.text}
         primaryAction={home.hero.primaryAction}
-        secondaryAction={home.hero.secondaryAction}
+        infoBlocks={home.hero.infoBlocks}
       />
 
       {/* Présentation */}

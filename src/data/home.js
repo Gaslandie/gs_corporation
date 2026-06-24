@@ -4,13 +4,32 @@
 
 const home = {
   hero: {
-    eyebrow: "Entreprise multisectorielle",
+    // Image de fond : placeholder local, facilement remplaçable par une vraie
+    // photo (bâtiment, industrie, logistique...) en changeant ce chemin.
+    image: "/hero-bg.svg",
     title: "GS CORPORATION",
-    lead: "Entreprise multisectorielle dédiée à la création de valeur à long terme.",
     subtitle:
-      "Des services de pointe dans divers secteurs, portés par une expertise approfondie et des solutions innovantes.",
+      "Entreprise multisectorielle dédiée à la création de valeur à long terme",
+    text: "Des services de pointe dans divers secteurs, portés par une expertise approfondie et des solutions innovantes.",
     primaryAction: { label: "Découvrir nos départements", href: "/departements" },
-    secondaryAction: { label: "Nous contacter", href: "/contact" },
+    // Bloc rouge d'informations affiché en bas à droite du hero.
+    infoBlocks: [
+      {
+        icon: "bi-grid-1x2",
+        title: "5 départements",
+        text: "Consulting • Logistique • Immobilier • Agrobusiness • Forage",
+      },
+      {
+        icon: "bi-geo-alt",
+        title: "Conakry",
+        text: "Cité Enco 5 / Comm. Ratoma",
+      },
+      {
+        icon: "bi-check2-circle",
+        title: "Solutions sur mesure",
+        text: "Qualité • Innovation • Excellence",
+      },
+    ],
   },
 
   presentation: {

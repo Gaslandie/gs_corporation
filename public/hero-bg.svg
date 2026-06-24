@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Arrière-plan corporate GS Corporation">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1c34" />
+      <stop offset="0.55" stop-color="#0d2240" />
+      <stop offset="1" stop-color="#16335a" />
+    </linearGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#000000" stop-opacity="0" />
+      <stop offset="1" stop-color="#000000" stop-opacity="0.35" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)" />
+
+  <!-- Grand cercle discret (clin d'oeil au logo) -->
+  <circle cx="1300" cy="210" r="260" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="60" />
+
+  <!-- Lignes diagonales subtiles -->
+  <g stroke="#ffffff" stroke-opacity="0.06" stroke-width="2">
+    <line x1="0" y1="220" x2="1600" y2="-100" />
+    <line x1="0" y1="430" x2="1600" y2="110" />
+  </g>
+
+  <!-- Silhouettes de bâtiments / infrastructures -->
+  <g fill="#ffffff" fill-opacity="0.045">
+    <rect x="120" y="520" width="120" height="380" />
+    <rect x="260" y="440" width="90" height="460" />
+    <rect x="370" y="560" width="110" height="340" />
+    <rect x="1120" y="500" width="100" height="400" />
+    <rect x="1240" y="430" width="120" height="470" />
+    <rect x="1380" y="560" width="90" height="340" />
+  </g>
+
+  <!-- Liseré rouge GS en bas -->
+  <rect x="0" y="884" width="1600" height="16" fill="#c0192e" fill-opacity="0.75" />
+
+  <!-- Dégradé d'assombrissement pour la lisibilité -->
+  <rect width="1600" height="900" fill="url(#fade)" />
+</svg>

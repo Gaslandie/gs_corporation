@@ -1,46 +1,35 @@
 import Link from "next/link";
 
-// Section d'en-tête (hero) corporate et réutilisable.
-// Props : eyebrow, title, lead, subtitle, primaryAction/secondaryAction = { label, href }.
-// La classe .gs-hero ajoute les formes décoratives (cercle + courbe du logo).
+// Section d'en-tête (hero) corporate de type bannière :
+// grande image de fond + overlay sombre + titre centré + bouton + bloc rouge.
+// Tous les styles réutilisables sont centralisés dans globals.css (.gs-hero*).
+//
+// Props :
+//   image           : chemin de l'image de fond (optionnel ; fallback dégradé).
+//   title, subtitle, text : contenus textuels.
+//   primaryAction / secondaryAction : { label, href }.
+//   infoBlocks      : [{ icon, title, text }] → bloc rouge en bas à droite.
 export default function HeroSection({
-  eyebrow,
+  image,
   title,
-  lead,
   subtitle,
+  text,
   primaryAction,
   secondaryAction,
+  infoBlocks = [],
 }) {
+  const style = image ? { "--gs-hero-image": `url(${image})` } : undefined;
+
   return (
-    <section
-      className="gs-hero section-padding text-white"
-      style={{
-        background:
-          "linear-gradient(135deg, var(--gs-bleu-marine) 0%, var(--gs-bleu-marine-clair) 100%)",
-      }}
-    >
-      <div className="container text-center">
-        {eyebrow && (
-          <span className="badge rounded-pill mb-3 px-3 py-2" style={{ backgroundColor: "var(--gs-rouge)" }}>
-            {eyebrow}
-          </span>
-        )}
-
-        <h1 className="fw-bold" style={{ fontSize: "var(--gs-fs-display)", letterSpacing: "0.02em" }}>
-          {title}
-        </h1>
-
-        {lead && (
-          <p className="fs-4 fw-semibold mx-auto mt-3 mb-2" style={{ maxWidth: "760px" }}>
-            {lead}
-          </p>
-        )}
+    <section className="gs-hero text-white" style={style}>
+      <div className="container text-center gs-hero__content">
+        <h1 className="gs-hero__title fw-bold">{title}</h1>
 
         {subtitle && (
-          <p className="lead text-white-50 mx-auto" style={{ maxWidth: "720px" }}>
-            {subtitle}
-          </p>
+          <p className="gs-hero__subtitle fw-semibold mx-auto mt-3">{subtitle}</p>
         )}
+
+        {text && <p className="lead text-white-50 mx-auto">{text}</p>}
 
         {(primaryAction || secondaryAction) && (
           <div className="d-flex flex-wrap gap-3 justify-content-center mt-4">
@@ -50,13 +39,27 @@ export default function HeroSection({
               </Link>
             )}
             {secondaryAction && (
-              <Link className="btn btn-light" href={secondaryAction.href}>
+              <Link className="btn btn-outline-light" href={secondaryAction.href}>
                 {secondaryAction.label}
               </Link>
             )}
           </div>
         )}
       </div>
+
+      {infoBlocks.length > 0 && (
+        <aside className="gs-hero__infobox">
+          {infoBlocks.map((block) => (
+            <div className="gs-hero__infoitem" key={block.title}>
+              <p className="gs-hero__infotitle">
+                {block.icon && <i className={`bi ${block.icon} me-2`} aria-hidden="true"></i>}
+                {block.title}
+              </p>
+              <p className="gs-hero__infotext">{block.text}</p>
+            </div>
+          ))}
+        </aside>
+      )}
     </section>
   );
 }
