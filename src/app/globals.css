@@ -343,6 +343,20 @@ body {
   color: var(--gs-accent);
 }
 
+/* Hero des pages département avec photo de fond + overlay teinté au thème
+   (le texte blanc reste lisible). Sans image, on garde un aplat de couleur. */
+.gs-dept-hero {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(
+      color-mix(in srgb, var(--gs-primary) 84%, transparent),
+      color-mix(in srgb, var(--gs-primary) 90%, transparent)
+    ),
+    var(--gs-hero-image);
+}
+
 /* Petite ligne décorative en couleur d'accent (rappel du logo / de la courbe). */
 .gs-accent-line {
   width: 64px;

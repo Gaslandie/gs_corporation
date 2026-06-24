@@ -13,6 +13,7 @@ export default function DepartmentPageTemplate({ data }) {
     name,
     theme,
     tagline,
+    heroImage,
     heroIntro,
     presentation,
     highlight,
@@ -174,10 +175,16 @@ export default function DepartmentPageTemplate({ data }) {
     ));
   }
 
+  // Hero : photo de fond + overlay si heroImage, sinon aplat de couleur du thème.
+  const heroClass = `section-padding text-white text-center${heroImage ? " gs-dept-hero" : ""}`;
+  const heroStyle = heroImage
+    ? { "--gs-hero-image": `url(${heroImage})` }
+    : { backgroundColor: "var(--gs-primary)" };
+
   return (
     <main className={theme}>
       {/* Hero / en-tête du département */}
-      <section className="section-padding text-white text-center" style={{ backgroundColor: "var(--gs-primary)" }}>
+      <section className={heroClass} style={heroStyle}>
         <div className="container">
           <h1 className="fw-bold mb-0">{name}</h1>
           <div className="gs-accent-line mx-auto"></div>

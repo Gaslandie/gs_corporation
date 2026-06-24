@@ -7,6 +7,7 @@ const departmentDetails = {
     slug: "consulting",
     name: "GS Consulting",
     theme: "theme-consulting", // bleu marine + jaune + blanc
+    heroImage: "/consulting_hero.jpg",
     tagline: "Votre partenaire pour l’excellence professionnelle",
     heroIntro:
       "Bienvenue chez GS Consulting : votre partenaire pour l’excellence professionnelle.",
@@ -85,6 +86,7 @@ const departmentDetails = {
     slug: "logistique",
     name: "GS Logistique",
     theme: "theme-logistique", // bleu marine + orange + gris + blanc
+    heroImage: "/logistique_hero.jpg",
     tagline:
       "Des solutions logistiques taillées sur mesure pour répondre à vos besoins",
     heroIntro: "Votre partenaire en mouvement.",
@@ -188,6 +190,7 @@ const departmentDetails = {
     slug: "immobilier",
     name: "GS Immobilier",
     theme: "theme-immobilier", // bleu marine + marron/or + gris + blanc
+    heroImage: "/immo_hero.jpg",
     tagline: "Créez, investissez, transformez.",
     heroIntro: "Votre partenaire pour créer, investir et transformer.",
     presentation:
