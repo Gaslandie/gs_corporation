@@ -153,6 +153,24 @@ body {
   color: var(--gs-on-primary);
 }
 
+/* Bouton « accent » (couleur secondaire du thème : jaune, orange, or...). */
+.btn-gs-accent {
+  --bs-btn-padding-x: 1.4rem;
+  --bs-btn-padding-y: 0.6rem;
+  font-weight: 600;
+  border-radius: var(--gs-radius);
+  background-color: var(--gs-accent);
+  border: 1px solid var(--gs-accent);
+  color: var(--gs-bleu-marine);
+  transition: filter 0.15s ease;
+}
+
+.btn-gs-accent:hover,
+.btn-gs-accent:focus {
+  filter: brightness(0.94);
+  color: var(--gs-bleu-marine);
+}
+
 /* ==========================================================================
    Cartes GS
    ========================================================================== */
@@ -275,6 +293,45 @@ body {
     padding-top: 3.5rem;
     padding-bottom: 3rem;
   }
+}
+
+/* ==========================================================================
+   Variantes « département » (génériques, pilotées par le thème actif)
+   Réutilisables par toutes les pages département via DepartmentPageTemplate.
+   ========================================================================== */
+
+/* Badge / pastille en couleur d'accent du thème (texte bleu marine lisible). */
+.gs-badge-accent {
+  background-color: var(--gs-accent);
+  color: var(--gs-bleu-marine);
+}
+
+/* Dans cette zone, les pastilles d'icônes passent en couleur d'accent. */
+.gs-accent-badges .gs-icon-badge {
+  background-color: var(--gs-accent);
+  color: var(--gs-bleu-marine);
+}
+
+/* Petite étiquette (sujets de formation, mots-clés...). */
+.gs-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 2rem;
+  background-color: var(--gs-gris-clair);
+  border: var(--gs-bordure);
+  font-weight: 500;
+  color: var(--gs-bleu-marine);
+}
+
+.gs-chip i {
+  color: var(--gs-accent);
+}
+
+/* Icône de citation en couleur d'accent. */
+.gs-quote-icon {
+  color: var(--gs-accent);
 }
 
 /* Monogramme « GS » (cercle gris, lettres bleu marine, arc rouge) */
