@@ -4,9 +4,8 @@
 
 const home = {
   hero: {
-    // Image de fond : placeholder local, facilement remplaçable par une vraie
-    // photo (bâtiment, industrie, logistique...) en changeant ce chemin.
-    image: "/hero-bg.svg",
+    // Image de fond du hero (photo réelle dans public/).
+    image: "/gs_hero.jpg",
     title: "GS CORPORATION",
     subtitle:
       "Entreprise multisectorielle dédiée à la création de valeur à long terme",
