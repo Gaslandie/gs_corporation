@@ -297,6 +297,7 @@ const departmentDetails = {
     slug: "agrobusiness",
     name: "GS Agrobusiness",
     theme: "theme-agrobusiness", // vert + bleu marine + gris + blanc
+    heroImage: "/AGROBUSINESS_HERO.jpg",
     tagline: "Nourrir le monde, créer des opportunités.",
     heroIntro:
       "Des solutions agricoles modernes pour répondre aux besoins de l’agriculture moderne.",
@@ -399,6 +400,7 @@ const departmentDetails = {
     slug: "foreurs-guinee",
     name: "Les Foreurs de Guinée",
     theme: "theme-foreurs", // bleu ciel/cyan + bleu pétrole + marron/or + gris + blanc
+    heroImage: "/forage_hero.jpg",
     tagline: "Un accès fiable à l’eau potable et durable.",
     heroIntro:
       "Des solutions de forage fiables pour répondre aux besoins en eau potable, agricoles, miniers et communautaires.",
