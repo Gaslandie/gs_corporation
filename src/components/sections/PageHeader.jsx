@@ -1,6 +1,11 @@
 // En-tête de page réutilisable (pages internes).
-// Fond bleu marine, sur-titre rouge optionnel, titre + sous-titre centrés.
-export default function PageHeader({ eyebrow, title, subtitle }) {
+// Fond bleu marine, sur-titre rouge (ou en couleur d'accent du thème si
+// accentEyebrow=true), titre + sous-titre centrés.
+export default function PageHeader({ eyebrow, title, subtitle, accentEyebrow = false }) {
+  const eyebrowStyle = accentEyebrow
+    ? { backgroundColor: "var(--gs-accent)", color: "var(--gs-bleu-marine)" }
+    : { backgroundColor: "var(--gs-rouge)" };
+
   return (
     <section
       className="section-padding text-white text-center"
@@ -8,10 +13,7 @@ export default function PageHeader({ eyebrow, title, subtitle }) {
     >
       <div className="container">
         {eyebrow && (
-          <span
-            className="badge rounded-pill mb-3 px-3 py-2"
-            style={{ backgroundColor: "var(--gs-rouge)" }}
-          >
+          <span className="badge rounded-pill mb-3 px-3 py-2" style={eyebrowStyle}>
             {eyebrow}
           </span>
         )}
