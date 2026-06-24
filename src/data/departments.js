@@ -11,7 +11,7 @@ const departments = [
       "Formation, consulting, coaching et gestion de carrière professionnelle.",
     theme: "theme-consulting",
     icon: "bi-graph-up-arrow",
-    href: "/departements/gs-consulting",
+    href: "/consulting",
   },
   {
     name: "GS Logistique",
@@ -20,16 +20,16 @@ const departments = [
       "Gestion de stock, location d’engins roulants et solutions logistiques adaptées.",
     theme: "theme-logistique",
     icon: "bi-truck",
-    href: "/departements/gs-logistique",
+    href: "/logistique",
   },
   {
     name: "GS Immobilier",
     slug: "gs-immobilier",
     description:
-      "Location et vente de bâtiments, construction, rénovation et gestion immobilière.",
+      "Location et vente de bâtiments, construction, rénovation, conseil et gestion immobilière.",
     theme: "theme-immobilier",
     icon: "bi-buildings",
-    href: "/departements/gs-immobilier",
+    href: "/immobilier",
   },
   {
     name: "GS Agrobusiness",
@@ -38,7 +38,7 @@ const departments = [
       "Transformation agricole, semences, intrants agricoles, machines et techniques agricoles.",
     theme: "theme-agrobusiness",
     icon: "bi-tree",
-    href: "/departements/gs-agrobusiness",
+    href: "/agrobusiness",
   },
   {
     name: "Les Foreurs de Guinée",
@@ -47,7 +47,7 @@ const departments = [
       "Forage de puits d’eau, construction de margelles et accès fiable à l’eau.",
     theme: "theme-foreurs",
     icon: "bi-cone-striped",
-    href: "/departements/les-foreurs-de-guinee",
+    href: "/foreurs-guinee",
   },
 ];
 
