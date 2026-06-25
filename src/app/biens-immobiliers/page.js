@@ -26,6 +26,7 @@ export default function BiensImmobiliersPage() {
       {/* En-tête de page */}
       <PageHeader
         accentEyebrow
+        image="/immo_hero.webp"
         eyebrow="GS Immobilier"
         title="Biens immobiliers"
         subtitle="Découvrez une sélection de biens immobiliers proposés par GS Immobilier pour la vente, la location et les projets d’investissement."
