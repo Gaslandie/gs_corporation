@@ -30,7 +30,9 @@ jobs:
           cache: npm
 
       - name: Installation des dépendances
-        run: npm ci
+        # npm install (et non npm ci) : tolère les écarts de lockfile dus aux
+        # dépendances optionnelles de sharp selon la version de npm du runner.
+        run: npm install --no-audit --no-fund
 
       - name: Build (export statique)
         run: npm run build
