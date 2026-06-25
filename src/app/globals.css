@@ -289,7 +289,7 @@ body {
   .gs-hero__infobox {
     position: absolute;
     bottom: -3rem;
-    right: max(1.5rem, calc((100vw - 1140px) / 2));
+    right: max(1rem, calc((100vw - 1140px) / 2 - 2.5rem));
     margin: 0;
     width: auto;
     z-index: 3;
