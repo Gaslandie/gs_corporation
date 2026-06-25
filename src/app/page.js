@@ -1,11 +1,30 @@
-import HeroSection from "@/components/sections/HeroSection";
+import HeroCarousel from "@/components/sections/HeroCarousel";
 import SectionTitle from "@/components/sections/SectionTitle";
 import ContactCTA from "@/components/sections/ContactCTA";
 import DepartmentCard from "@/components/cards/DepartmentCard";
 import ServiceCard from "@/components/cards/ServiceCard";
 import departments from "@/data/departments";
+import departmentDetails from "@/data/departmentDetails";
 import siteInfo from "@/data/siteInfo";
 import home from "@/data/home";
+
+// Slides du hero : 1 slide GS Corporation + 1 slide par département (avec sa photo).
+const heroSlides = [
+  {
+    image: home.hero.image,
+    eyebrow: "Groupe multisectoriel",
+    title: home.hero.title,
+    text: home.hero.subtitle,
+    cta: home.hero.primaryAction,
+  },
+  ...Object.values(departmentDetails).map((dept) => ({
+    image: dept.heroImage,
+    eyebrow: "Nos départements",
+    title: dept.name,
+    text: dept.tagline,
+    cta: { label: `Découvrir ${dept.name}`, href: `/${dept.slug}` },
+  })),
+];
 
 // Page d'accueil GS Corporation.
 // Couleurs : rouge / bleu marine / gris / blanc du logo (le rouge est réservé
@@ -14,15 +33,8 @@ import home from "@/data/home";
 export default function Home() {
   return (
     <main>
-      {/* Hero corporate */}
-      <HeroSection
-        image={home.hero.image}
-        title={home.hero.title}
-        subtitle={home.hero.subtitle}
-        text={home.hero.text}
-        primaryAction={home.hero.primaryAction}
-        infoBlocks={home.hero.infoBlocks}
-      />
+      {/* Hero : carrousel de départements */}
+      <HeroCarousel slides={heroSlides} infoBlocks={home.hero.infoBlocks} />
 
       {/* Présentation */}
       <section className="section-padding">
