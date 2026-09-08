@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BrandLogo from "@/components/BrandLogo";
 import navigation from "@/data/navigation";
 import departments from "@/data/departments";
 import siteInfo from "@/data/siteInfo";
@@ -9,14 +10,13 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="gs-footer pt-5 pb-4 mt-auto">
+    <footer className="gs-footer mt-auto">
       <div className="container">
         <div className="row g-4">
           {/* Marque + réseaux */}
           <div className="col-12 col-lg-4">
             <Link href="/" className="gs-brand d-inline-flex mb-3">
-              <span className="gs-brand-mark">GS</span>
-              <span className="gs-brand-text">GS CORPORATION</span>
+              <BrandLogo compact light />
             </Link>
             <p className="mb-3" style={{ maxWidth: "320px" }}>
               {siteInfo.slogan}

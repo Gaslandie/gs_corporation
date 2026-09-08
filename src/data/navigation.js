@@ -12,3 +12,16 @@ const navigation = [
 ];
 
 export default navigation;
+
+// Les catalogues partagent une entrée pour garder la navigation lisible.
+export const primaryNavigation = [
+  navigation[0],
+  { ...navigation[1], label: "Le groupe" },
+  { ...navigation[2], id: "departments" },
+  {
+    id: "offers",
+    label: "Nos offres",
+    children: [navigation[4], navigation[5]],
+  },
+  navigation[3],
+];

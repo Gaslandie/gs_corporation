@@ -1,3 +1,5 @@
+import { departmentVisuals } from "@/data/media";
+
 // Départements (sociétés) du groupe GS Corporation.
 // Chaque département référence une classe de thème définie dans globals.css
 // (theme-consulting, theme-logistique, etc.) pour centraliser les couleurs.
@@ -51,4 +53,7 @@ const departments = [
   },
 ];
 
-export default departments;
+export default departments.map((department) => ({
+  ...department,
+  ...departmentVisuals[department.href.slice(1)],
+}));

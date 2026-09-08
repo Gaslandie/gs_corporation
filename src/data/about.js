@@ -1,9 +1,11 @@
 // Contenu de la page « À propos ». Textes fidèles au document client D1
 // (légèrement reformulés pour le web). Les départements sont lus depuis
 // src/data/departments.js et le slogan depuis src/data/siteInfo.js.
+import { photos } from "@/data/media";
 
 const about = {
   header: {
+    image: photos.city,
     eyebrow: "Le groupe",
     title: "À propos de GS Corporation",
     subtitle:
@@ -17,12 +19,16 @@ const about = {
   },
 
   vision: {
+    image: photos.skyline,
+    imageCaption: "Accompagner les projets qui construisent l’avenir.",
     eyebrow: "Notre vision",
     title: "Bâtir une valeur durable",
     text: "Créer de la valeur durable pour nos clients à travers une expertise multisectorielle, des solutions innovantes et un accompagnement adapté aux besoins de chaque projet.",
   },
 
   engagements: {
+    image: photos.farmingAdvice,
+    imageCaption: "Comprendre les besoins, au plus près du terrain.",
     eyebrow: "Ce qui nous guide",
     title: "Nos engagements",
     text: "Chez GS Corporation, nous sommes déterminés à fournir des solutions sur mesure, à innover constamment et à maintenir des normes élevées de qualité et de durabilité dans tout ce que nous faisons. Notre succès repose sur l’intégrité, l’innovation et l’excellence opérationnelle.",
@@ -64,16 +70,19 @@ const about = {
     items: [
       {
         icon: "bi-patch-check",
+        image: photos.architecture,
         title: "Expertise approfondie",
         description: "Une connaissance pointue de chaque secteur où nous intervenons.",
       },
       {
         icon: "bi-lightbulb",
+        image: photos.logistics,
         title: "Solutions innovantes",
         description: "Des approches modernes et créatives adaptées à chaque projet.",
       },
       {
         icon: "bi-graph-up-arrow",
+        image: photos.community,
         title: "Création de valeur à long terme",
         description: "Un impact durable, pensé pour la réussite de nos clients.",
       },

@@ -1,3 +1,5 @@
+import { photos } from "@/data/media";
+
 // Biens immobiliers proposés par GS Immobilier.
 // Données fictives mais réalistes (maquette). Prix volontairement « sur demande ».
 
@@ -12,6 +14,7 @@ const waLink = (title) =>
 const properties = [
   {
     id: 1,
+    image: photos.house,
     title: "Villa résidentielle à vendre",
     slug: "villa-residentielle-ratoma",
     type: "Villa",
@@ -24,11 +27,11 @@ const properties = [
     features: ["4 chambres", "Jardin", "Garage"],
     icon: "bi-house",
     status: "Disponible",
-    href: "#",
     whatsapp: waLink("Villa résidentielle à vendre"),
   },
   {
     id: 2,
+    image: photos.earthworks,
     title: "Terrain à développer",
     slug: "terrain-a-developper-coyah",
     type: "Terrain",
@@ -41,11 +44,11 @@ const properties = [
     features: ["Constructible", "Accès route", "Zone calme"],
     icon: "bi-map",
     status: "Disponible",
-    href: "#",
     whatsapp: waLink("Terrain à développer"),
   },
   {
     id: 3,
+    image: photos.city,
     title: "Bâtiment commercial à louer",
     slug: "batiment-commercial-kaloum",
     type: "Bâtiment commercial",
@@ -58,11 +61,11 @@ const properties = [
     features: ["Grand espace", "Parking", "Centre-ville"],
     icon: "bi-shop",
     status: "En étude",
-    href: "#",
     whatsapp: waLink("Bâtiment commercial à louer"),
   },
   {
     id: 4,
+    image: photos.building,
     title: "Appartement moderne à louer",
     slug: "appartement-moderne-kipe",
     type: "Appartement",
@@ -75,11 +78,11 @@ const properties = [
     features: ["2 chambres", "Balcon", "Sécurisé"],
     icon: "bi-buildings",
     status: "Loué",
-    href: "#",
     whatsapp: waLink("Appartement moderne à louer"),
   },
   {
     id: 5,
+    image: photos.neighborhood,
     title: "Domaine pour projet immobilier",
     slug: "domaine-projet-immobilier-dubreka",
     type: "Domaine",
@@ -92,11 +95,11 @@ const properties = [
     features: ["Grande superficie", "Terrain plat", "Proche route"],
     icon: "bi-pin-map",
     status: "Disponible",
-    href: "#",
     whatsapp: waLink("Domaine pour projet immobilier"),
   },
   {
     id: 6,
+    image: photos.plans,
     title: "Maison familiale à vendre",
     slug: "maison-familiale-lambanyi",
     type: "Maison",
@@ -109,7 +112,6 @@ const properties = [
     features: ["3 chambres", "Cour", "Quartier résidentiel"],
     icon: "bi-house-door",
     status: "Vendu",
-    href: "#",
     whatsapp: waLink("Maison familiale à vendre"),
   },
 ];

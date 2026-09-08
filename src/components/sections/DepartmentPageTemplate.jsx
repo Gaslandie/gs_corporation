@@ -2,231 +2,131 @@ import Link from "next/link";
 import SectionTitle from "@/components/sections/SectionTitle";
 import ServiceCard from "@/components/cards/ServiceCard";
 import ContactCTA from "@/components/sections/ContactCTA";
+import BrandLogo from "@/components/BrandLogo";
+import Visual from "@/components/Visual";
+import PrinciplesList from "@/components/sections/PrinciplesList";
 import { asset } from "@/lib/assetPath";
 
-// Modèle réutilisable pour les pages département.
-// Chaque section est rendue seulement si la donnée existe → le même composant
-// sert à tous les départements. La classe de thème (data.theme) pilote les
-// couleurs (primary / accent). Les sections de corps alternent fond blanc /
-// gris clair automatiquement, quel que soit le nombre de sections présentes.
 export default function DepartmentPageTemplate({ data }) {
   const {
-    name,
-    theme,
-    tagline,
-    heroImage,
-    heroIntro,
-    presentation,
-    highlight,
-    cardSections = [],
-    expertise = [],
-    expertiseEyebrow = "Notre savoir-faire",
-    expertiseTitle = "Domaines d’expertise",
-    lists = [],
-    values = [],
-    whyChoose = [],
-    whyChooseIntro,
-    quote,
+    name, theme, headline, intro, brand, cover, portrait, brochure, action,
+    presentation, highlight, gallery = [], cardSections = [], expertise = [],
+    expertiseEyebrow = "Notre savoir-faire", expertiseTitle = "Domaines d’expertise",
+    lists = [], values = [], whyChoose = [], whyChooseIntro, quote,
+    commitmentImage, contactImage,
   } = data;
 
-  // Sections de corps (entre le hero et la citation) : on les empile dans
-  // l'ordre puis on leur applique un fond alterné (blanc / section-muted).
-  const blocks = [];
-
-  if (presentation) {
-    blocks.push((bg) => (
-      <section className={`section-padding ${bg}`} key="presentation">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-12 col-lg-9 text-center">
-              <SectionTitle eyebrow="Présentation" title={`À propos de ${name}`} />
-              <p className="fs-5 text-secondary mb-0">{presentation}</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    ));
-  }
-
-  if (highlight) {
-    blocks.push((bg) => (
-      <section className={`section-padding ${bg}`} key="highlight">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-12 col-lg-9">
-              <div className="card-gs gs-highlight d-flex flex-column flex-md-row align-items-md-center gap-3">
-                <i
-                  className={`bi ${highlight.icon || "bi-patch-check"} gs-highlight-icon`}
-                  aria-hidden="true"
-                ></i>
-                <div>
-                  {highlight.title && (
-                    <h2 className="h4 fw-bold mb-2" style={{ color: "var(--gs-bleu-marine)" }}>
-                      {highlight.title}
-                    </h2>
-                  )}
-                  <p className="mb-0 text-secondary">{highlight.text}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    ));
-  }
-
-  cardSections.forEach((sectionData, index) => {
-    blocks.push((bg) => (
-      <section className={`section-padding ${bg}`} key={`cards-${index}`}>
-        <div className="container gs-accent-badges">
-          <SectionTitle
-            eyebrow={sectionData.eyebrow}
-            title={sectionData.title}
-            subtitle={sectionData.subtitle}
-          />
-          <div className="row g-4">
-            {sectionData.items.map((item) => (
-              <div className="col-12 col-sm-6 col-lg-3" key={item.title}>
-                <ServiceCard service={item} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    ));
-  });
-
-  if (expertise.length > 0) {
-    blocks.push((bg) => (
-      <section className={`section-padding ${bg}`} key="expertise">
-        <div className="container gs-accent-badges">
-          <SectionTitle eyebrow={expertiseEyebrow} title={expertiseTitle} />
-          <div className="row g-4">
-            {expertise.map((item) => (
-              <div className="col-12 col-md-6 col-lg-4" key={item.title}>
-                <ServiceCard service={item} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    ));
-  }
-
-  lists.forEach((list, index) => {
-    blocks.push((bg) => (
-      <section className={`section-padding ${bg}`} key={`list-${index}`}>
-        <div className="container text-center">
-          <SectionTitle eyebrow={list.eyebrow} title={list.title} subtitle={list.subtitle} />
-          <div className="d-flex flex-wrap gap-3 justify-content-center">
-            {list.items.map((item) => (
-              <span className="gs-chip" key={item}>
-                <i className={`bi ${list.icon || "bi-check2-circle"}`} aria-hidden="true"></i>
-                {item}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-    ));
-  });
-
-  if (values.length > 0) {
-    blocks.push((bg) => (
-      <section className={`section-padding ${bg}`} key="values">
-        <div className="container gs-accent-badges">
-          <SectionTitle eyebrow="Nos valeurs" title="Ce qui nous anime" />
-          <div className="row g-4 justify-content-center">
-            {values.map((value) => (
-              <div className="col-6 col-md-3" key={value.label}>
-                <div className="card-gs text-center h-100">
-                  <span className="gs-icon-badge mb-3">
-                    <i className={`bi ${value.icon}`} aria-hidden="true"></i>
-                  </span>
-                  <p className="fw-semibold mb-0" style={{ color: "var(--gs-bleu-marine)" }}>
-                    {value.label}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    ));
-  }
-
-  if (whyChoose.length > 0) {
-    blocks.push((bg) => (
-      <section className={`section-padding ${bg}`} key="why">
-        <div className="container gs-accent-badges">
-          <SectionTitle
-            eyebrow="Pourquoi nous"
-            title={`Pourquoi choisir ${name} ?`}
-            subtitle={whyChooseIntro}
-          />
-          <div className="row g-4">
-            {whyChoose.map((item) => (
-              <div className="col-12 col-md-6 col-lg-4" key={item.title}>
-                <ServiceCard service={item} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    ));
-  }
-
-  // Hero : photo de fond + overlay si heroImage, sinon aplat de couleur du thème.
-  const heroClass = `section-padding text-white text-center${heroImage ? " gs-dept-hero" : ""}`;
-  const heroStyle = heroImage
-    ? { "--gs-hero-image": `url(${asset(heroImage)})` }
-    : { backgroundColor: "var(--gs-primary)" };
-
   return (
-    <main className={theme}>
-      {/* Hero / en-tête du département */}
-      <section className={heroClass} style={heroStyle}>
+    <main id="contenu" tabIndex={-1} className={theme}>
+      <section className="gs-department-hero">
         <div className="container">
-          <h1 className="fw-bold mb-0">{name}</h1>
-          <div className="gs-accent-line mx-auto"></div>
-          {tagline && (
-            <p className="lead fw-semibold mx-auto mt-3 mb-0" style={{ maxWidth: "720px" }}>
-              {tagline}
-            </p>
-          )}
-          {heroIntro && (
-            <p className="text-white-50 mx-auto mt-2" style={{ maxWidth: "680px" }}>
-              {heroIntro}
-            </p>
-          )}
-          <div className="d-flex flex-wrap gap-3 justify-content-center mt-4">
-            <Link className="btn btn-gs-accent" href="/contact">
-              Nous contacter
-            </Link>
-            <Link className="btn btn-outline-light" href="/departements">
-              Tous les départements
-            </Link>
+          <nav className="gs-breadcrumb" aria-label="Fil d’Ariane">
+            <Link href="/">Accueil</Link><span aria-hidden="true">/</span>
+            <Link href="/departements">Départements</Link><span aria-hidden="true">/</span><span aria-current="page">{name}</span>
+          </nav>
+          <div className="row g-5 align-items-center">
+            <div className="col-12 col-lg-6">
+              <BrandLogo brand={brand} className="gs-department-hero-logo" />
+              <span className="gs-eyebrow">{name}</span>
+              <h1>{headline}</h1>
+              <p className="lead text-secondary mt-3 mb-4">{intro}</p>
+              <div className="d-flex flex-wrap gap-3">
+                <Link className="btn btn-gs-accent" href={action.href}>{action.label}<i className="bi bi-arrow-right ms-2" aria-hidden="true" /></Link>
+                <a className="btn btn-gs-outline" href="#prestations">Nos prestations</a>
+              </div>
+            </div>
+            <div className="col-12 col-lg-6">
+              <Visual image={cover} eager zoomable className="gs-department-cover" sizes="(max-width: 991px) 100vw, 50vw" />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Sections de corps (fond alterné) */}
-      {blocks.map((render, index) => render(index % 2 === 0 ? "" : "section-muted"))}
+      <nav className="gs-department-subnav" aria-label={`Explorer ${name}`}>
+        <div className="container d-flex flex-wrap gap-4 align-items-center">
+          <a href="#presentation">Le département</a>
+          <a href="#prestations">Nos prestations</a>
+          {gallery.length > 0 && <a href="#en-images">En images</a>}
+          {brochure && <a href={asset(brochure)} target="_blank" rel="noopener noreferrer" className="ms-md-auto"><i className="bi bi-file-earmark-pdf me-2" aria-hidden="true" />Consulter la brochure <span className="small">(PDF)</span><span className="visually-hidden"> — nouvel onglet</span></a>}
+        </div>
+      </nav>
 
-      {/* Citation */}
-      {quote && (
-        <section className="section-padding text-white text-center" style={{ backgroundColor: "var(--gs-primary)" }}>
-          <div className="container">
-            <i className="bi bi-quote display-3 gs-quote-icon" aria-hidden="true"></i>
-            <p className="fs-3 fw-light fst-italic mx-auto mb-0" style={{ maxWidth: "820px" }}>
-              {quote}
-            </p>
+      <section id="presentation" className="section-padding">
+        <div className="container">
+          <div className="row g-5 align-items-center">
+            {portrait && <div className="col-12 col-lg-5">
+              <Visual image={portrait} zoomable className="gs-department-portrait" />
+            </div>}
+            <div className={portrait ? "col-12 col-lg-7" : "col-12 col-lg-10 mx-auto"}>
+              <SectionTitle eyebrow="Notre mission" title={`À vos côtés avec ${name}`} center={false} />
+              <p className="lead text-secondary">{presentation}</p>
+              {highlight && <div className="gs-inline-highlight"><h3 className="h6">{highlight.title}</h3><p className="mb-0 text-secondary">{highlight.text}</p></div>}
+              {values.length > 0 && <div className="d-flex flex-wrap gap-2 mt-4">{values.map((value) => <span className="gs-chip" key={value.label}><i className={`bi ${value.icon}`} aria-hidden="true" />{value.label}</span>)}</div>}
+            </div>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
-      {/* CTA contact */}
-      <ContactCTA />
+      <section id="prestations" className="section-padding section-muted">
+        <div className="container gs-accent-badges">
+          <SectionTitle eyebrow={expertiseEyebrow} title={expertiseTitle} subtitle="Une réponse adaptée à chaque étape de votre projet." center={false} />
+          <div className="row g-4 justify-content-center">
+            {expertise.map((item) => <div className="col-12 col-md-6 col-lg-4" key={item.title}><ServiceCard service={item} /></div>)}
+          </div>
+        </div>
+      </section>
+
+      {gallery.length > 0 && <section id="en-images" className="section-padding">
+        <div className="container">
+          <SectionTitle eyebrow="Nos métiers en images" title="Des besoins concrets. Des expertises dédiées." center={false} />
+          <div className="row g-4">
+            {gallery.map((item, index) => <div className="col-12 col-md-4" key={item.title}>
+              <Visual image={item.image} zoomable className="gs-story-photo" />
+              <div className="gs-story-heading"><span>{String(index + 1).padStart(2, "0")}</span><h3 className="h5 mb-0">{item.title}</h3></div>
+              <p className="text-secondary mt-3 mb-0">{item.text}</p>
+            </div>)}
+          </div>
+        </div>
+      </section>}
+
+      {lists.length > 0 && <section className="section-padding section-muted">
+        <div className="container">
+          <div className="row g-4">
+            {lists.map((list) => <div className="col-12 col-lg" key={list.title}>
+              <div className={`gs-list-panel ${list.image ? "gs-list-panel--photo" : ""} ${lists.length === 1 ? "gs-list-panel--wide" : ""}`}>
+                {list.image && <Visual image={list.image} className="gs-list-photo" showSource={false} sizes="(max-width: 991px) 100vw, 50vw" />}
+                <div className="gs-list-content"><span className="gs-eyebrow">{list.eyebrow}</span><h2 className="h4 mb-4">{list.title}</h2>
+                {list.subtitle && <p>{list.subtitle}</p>}
+                <ul className="list-unstyled mb-0">{list.items.map((item) => <li key={item}><i className={`bi ${list.icon || "bi-check2-circle"}`} aria-hidden="true" />{item}</li>)}</ul>
+                </div>
+              </div>
+            </div>)}
+          </div>
+        </div>
+      </section>}
+
+      {cardSections.map((section) => <section className="section-padding" key={section.title}>
+        <div className="container gs-accent-badges">
+          <SectionTitle eyebrow={section.eyebrow} title={section.title} subtitle={section.subtitle} />
+          <div className="row g-4">{section.items.map((item) => <div className="col-12 col-md-6 col-lg-3" key={item.title}><ServiceCard service={item} /></div>)}</div>
+        </div>
+      </section>)}
+
+      {whyChoose.length > 0 && <section className="section-padding">
+        <div className="container gs-accent-badges">
+          <div className="row g-5 align-items-center">
+            <div className="col-12 col-lg-5">
+              <Visual image={commitmentImage} zoomable className="gs-editorial-photo" sizes="(max-width: 991px) 100vw, 42vw" />
+            </div>
+            <div className="col-12 col-lg-7">
+              <SectionTitle eyebrow="Nos engagements" title={`Pourquoi choisir ${name} ?`} subtitle={whyChooseIntro} center={false} />
+              <PrinciplesList items={whyChoose} />
+            </div>
+          </div>
+        </div>
+      </section>}
+
+      <ContactCTA description={quote} image={contactImage} />
     </main>
   );
 }

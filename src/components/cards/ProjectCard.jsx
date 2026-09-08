@@ -1,15 +1,15 @@
-// Carte d'une réalisation / projet.
-// La couverture est un placeholder visuel (dégradé bleu marine + icône de
-// catégorie) en attendant de vraies images.
+import Link from "next/link";
+import CatalogVisual from "@/components/CatalogVisual";
+import { mediaLabels } from "@/data/media";
+
 export default function ProjectCard({ project }) {
-  const { title, department, category, description, location, year, icon, href } = project;
+  const { title, department, category, description, location, year, image, icon } = project;
 
   return (
-    <article className="card-gs p-0 overflow-hidden d-flex flex-column h-100">
-      {/* Couverture placeholder */}
-      <div className="gs-project-cover">
+    <article className={`card-gs p-0 overflow-hidden d-flex flex-column h-100 ${department.theme}`}>
+      <div className="gs-catalog-cover">
         <span className="gs-project-cat">{category}</span>
-        <i className={`bi ${icon}`} aria-hidden="true"></i>
+        <CatalogVisual image={image} icon={icon} caption={mediaLabels.project} />
       </div>
 
       {/* Contenu */}
@@ -38,10 +38,10 @@ export default function ProjectCard({ project }) {
           </span>
         </div>
 
-        <a href={href} className="btn btn-gs-primary align-self-start">
-          Voir le projet
+        <Link href={department.href} className="btn btn-gs-primary align-self-start">
+          Découvrir l’expertise
           <i className="bi bi-arrow-right ms-2" aria-hidden="true"></i>
-        </a>
+        </Link>
       </div>
     </article>
   );

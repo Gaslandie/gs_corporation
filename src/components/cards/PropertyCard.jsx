@@ -1,5 +1,9 @@
+import Link from "next/link";
+import Visual from "@/components/Visual";
+import { mediaLabels } from "@/data/media";
+
 // Carte d'un bien immobilier (style catalogue).
-// La couverture est un placeholder visuel (dégradé + icône du type de bien).
+// Les visuels de brochure sont identifiés comme des illustrations.
 // Les couleurs (accent marron/or) sont pilotées par le thème de la page.
 export default function PropertyCard({ property }) {
   const {
@@ -10,29 +14,16 @@ export default function PropertyCard({ property }) {
     price,
     area,
     features = [],
-    icon,
+    image,
     status,
-    href,
     whatsapp,
   } = property;
 
   return (
     <article className="card-gs p-0 overflow-hidden d-flex flex-column h-100">
-      {/* Couverture placeholder */}
-      <div className="gs-project-cover">
-        <span
-          className="position-absolute top-0 start-0 m-2 badge rounded-pill"
-          style={{ backgroundColor: "var(--gs-accent)", color: "var(--gs-bleu-marine)" }}
-        >
-          {operation}
-        </span>
-        <span
-          className="position-absolute top-0 end-0 m-2 badge rounded-pill"
-          style={{ backgroundColor: "rgba(255,255,255,0.9)", color: "var(--gs-bleu-marine)" }}
-        >
-          {status}
-        </span>
-        <i className={`bi ${icon}`} aria-hidden="true"></i>
+      <div className="gs-catalog-cover">
+        <div className="gs-catalog-badges"><span>{operation}</span><span>{status}</span></div>
+        <Visual image={image} className="gs-card-visual" caption={mediaLabels.property} showSource={false} />
       </div>
 
       {/* Contenu */}
@@ -71,9 +62,9 @@ export default function PropertyCard({ property }) {
         </div>
 
         <div className="d-flex flex-wrap gap-2 mt-auto">
-          <a href={href} className="btn btn-gs-accent">
-            Voir le bien
-          </a>
+          <Link href="/contact" className="btn btn-gs-accent">
+            Échanger sur ce bien
+          </Link>
           <a
             href={whatsapp}
             target="_blank"

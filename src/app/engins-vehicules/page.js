@@ -1,8 +1,11 @@
 import PageHeader from "@/components/sections/PageHeader";
 import SectionTitle from "@/components/sections/SectionTitle";
 import ContactCTA from "@/components/sections/ContactCTA";
-import EquipmentCard from "@/components/cards/EquipmentCard";
+import FilteredCatalog from "@/components/sections/FilteredCatalog";
+import { photos, brands } from "@/data/media";
 import equipments from "@/data/equipments";
+import { equipmentTopics } from "@/data/pageVisuals";
+import ImageTopics from "@/components/sections/ImageTopics";
 
 export const metadata = {
   title: "Engins & véhicules — GS Corporation",
@@ -10,23 +13,22 @@ export const metadata = {
     "Engins lourds, véhicules et équipements proposés par GS Logistique pour vos travaux de terrassement, levage, transport et logistique.",
 };
 
-// Filtres visuels (statiques, non fonctionnels pour le moment).
-const filters = ["Tous", "Engins lourds", "Véhicules", "Camions", "Équipements", "Disponibles"];
-
-// Blocs « Des solutions pour vos travaux et transports ».
-const solutions = [
-  { icon: "bi-cone-striped", label: "Terrassement" },
-  { icon: "bi-arrow-up-square", label: "Levage et manutention" },
-  { icon: "bi-truck", label: "Transport et livraison" },
-  { icon: "bi-buildings", label: "Travaux BTP et industriels" },
+const filters = [
+  { label: "Tous" },
+  { label: "Engins lourds", field: "category", values: ["Engin lourd"] },
+  { label: "Véhicules", field: "category", values: ["Véhicule"] },
+  { label: "Camions", field: "category", values: ["Camion"] },
+  { label: "Équipements", field: "category", values: ["Équipement"] },
+  { label: "Disponibles", field: "availability", values: ["Disponible"] },
 ];
 
 export default function EnginsVehiculesPage() {
   return (
-    <main className="theme-logistique">
+    <main id="contenu" tabIndex={-1} className="theme-logistique">
       {/* En-tête de page */}
       <PageHeader
-        accentEyebrow
+        brand={brands.logistique}
+        image={photos.fleet}
         eyebrow="GS Logistique"
         title="Engins & véhicules"
         subtitle="Découvrez une sélection d’engins lourds, véhicules et équipements proposés par GS Logistique pour accompagner vos travaux, transports et besoins opérationnels."
@@ -48,28 +50,10 @@ export default function EnginsVehiculesPage() {
         </div>
       </section>
 
-      {/* Filtres visuels + grille des engins et véhicules */}
+      {/* Filtres et grille des engins et véhicules */}
       <section className="section-padding section-muted">
         <div className="container">
-          <div className="d-flex flex-wrap gap-2 justify-content-center mb-5">
-            {filters.map((filter, index) => (
-              <button
-                type="button"
-                key={filter}
-                className={`btn ${index === 0 ? "btn-gs-accent" : "btn-gs-outline"}`}
-              >
-                {filter}
-              </button>
-            ))}
-          </div>
-
-          <div className="row g-4">
-            {equipments.map((equipment) => (
-              <div className="col-12 col-md-6 col-lg-4" key={equipment.id}>
-                <EquipmentCard equipment={equipment} />
-              </div>
-            ))}
-          </div>
+          <FilteredCatalog items={equipments} filters={filters} kind="equipments" />
         </div>
       </section>
 
@@ -81,25 +65,12 @@ export default function EnginsVehiculesPage() {
             title="Des solutions pour vos travaux et transports"
             subtitle="Nous mettons à votre disposition des engins et véhicules adaptés pour répondre aux besoins de terrassement, d’assainissement, de levage, de manutention, de transport et de logistique."
           />
-          <div className="row g-4 justify-content-center">
-            {solutions.map((solution) => (
-              <div className="col-6 col-md-3" key={solution.label}>
-                <div className="card-gs text-center h-100">
-                  <span className="gs-icon-badge mb-3">
-                    <i className={`bi ${solution.icon}`} aria-hidden="true"></i>
-                  </span>
-                  <p className="fw-semibold mb-0" style={{ color: "var(--gs-bleu-marine)" }}>
-                    {solution.label}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <ImageTopics items={equipmentTopics} />
         </div>
       </section>
 
       {/* CTA contact */}
-      <ContactCTA />
+      <ContactCTA image={photos.logistics} />
     </main>
   );
 }

@@ -1,0 +1,3 @@
+# Conserver les brochures et les polices comme fichiers binaires.
+*.pdf binary
+*.ttf binary

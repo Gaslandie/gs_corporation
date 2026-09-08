@@ -1,3 +1,5 @@
+import { departmentVisuals, photos } from "@/data/media";
+
 // Détails complets des pages département (réutilisés par DepartmentPageTemplate).
 // Une entrée par département. Textes fidèles aux documents clients.
 // Le thème (theme-consulting, theme-logistique...) pilote les couleurs.
@@ -7,7 +9,6 @@ const departmentDetails = {
     slug: "consulting",
     name: "GS Consulting",
     theme: "theme-consulting", // bleu marine + jaune + blanc
-    heroImage: "/consulting_hero.webp",
     tagline: "Votre partenaire pour l’excellence professionnelle",
     heroIntro:
       "Bienvenue chez GS Consulting : votre partenaire pour l’excellence professionnelle.",
@@ -18,18 +19,21 @@ const departmentDetails = {
       {
         icon: "bi-mortarboard",
         title: "Formations professionnelles",
+        image: photos.training,
         description:
           "Acquérez des compétences de pointe grâce à nos programmes de formation conçus pour stimuler votre croissance professionnelle. Que vous soyez novice dans votre domaine ou un professionnel chevronné, notre équipe d’instructeurs expérimentés vous accompagne à chaque étape.",
       },
       {
         icon: "bi-megaphone",
         title: "Conseil en stratégie marketing et communication",
+        image: photos.strategy,
         description:
           "Développez des stratégies marketing percutantes et maîtrisez l’art de la communication efficace. Nous collaborons avec vous pour créer des plans stratégiques alignés sur vos objectifs et adaptés à l’évolution constante du paysage commercial.",
       },
       {
         icon: "bi-graph-up-arrow",
         title: "Développement de carrière professionnelle",
+        image: photos.coaching,
         description:
           "Que vous cherchiez à progresser dans votre carrière actuelle ou à explorer de nouveaux horizons, GS Consulting offre des conseils avisés et des programmes de développement de carrière pour vous aider à atteindre vos aspirations professionnelles.",
       },
@@ -39,6 +43,7 @@ const departmentDetails = {
       {
         eyebrow: "Programmes",
         title: "Nos principaux sujets",
+        image: photos.presentation,
         icon: "bi-check2-circle",
         items: [
           "Logiciel comptable",
@@ -86,7 +91,6 @@ const departmentDetails = {
     slug: "logistique",
     name: "GS Logistique",
     theme: "theme-logistique", // bleu marine + orange + gris + blanc
-    heroImage: "/logistique_hero.webp",
     tagline:
       "Des solutions logistiques taillées sur mesure pour répondre à vos besoins",
     heroIntro: "Votre partenaire en mouvement.",
@@ -99,24 +103,28 @@ const departmentDetails = {
       {
         icon: "bi-box-seam",
         title: "Gestion des stocks",
+        image: photos.warehouse,
         description:
           "Faites l’inventaire et approvisionnez votre stock sans perdre de temps.",
       },
       {
         icon: "bi-truck-front",
         title: "Location de véhicules",
+        image: photos.pickup,
         description:
           "Nous mettons à votre disposition des modèles variés de véhicules pour vos courses, vos transports et autres besoins : pick-up, camionnettes et véhicules utilitaires.",
       },
       {
         icon: "bi-truck",
         title: "Location d’engins lourds",
+        image: photos.fleet,
         description:
           "Nous mettons à votre disposition des engins modernes, nécessaires aux travaux de terrassement, d’assainissement, de levage, de manutention et autres besoins dans les secteurs du BTP, industriels et portuaires.",
       },
       {
         icon: "bi-tools",
         title: "Vente de fournitures, matériels et équipements",
+        image: photos.tools,
         description:
           "Découvrez une large gamme d’outils, d’accessoires et de fournitures pour vous accompagner dans toutes vos tâches du quotidien.",
       },
@@ -126,12 +134,14 @@ const departmentDetails = {
       {
         eyebrow: "Notre processus",
         title: "Nos missions",
+        image: photos.logistics,
         icon: "bi-arrow-right-circle",
         items: ["Réceptionner", "Stocker", "Préparer", "Expédier", "Livrer"],
       },
       {
         eyebrow: "Suivi",
         title: "Gestion de stock",
+        image: photos.warehouse,
         icon: "bi-clipboard-check",
         items: [
           "Gestion optimale de votre stock",
@@ -143,6 +153,7 @@ const departmentDetails = {
       {
         eyebrow: "Parc matériel",
         title: "Engins disponibles",
+        image: photos.loader,
         icon: "bi-gear-wide-connected",
         items: [
           "Tractopelles",
@@ -190,7 +201,6 @@ const departmentDetails = {
     slug: "immobilier",
     name: "GS Immobilier",
     theme: "theme-immobilier", // bleu marine + marron/or + gris + blanc
-    heroImage: "/immo_hero.webp",
     tagline: "Créez, investissez, transformez.",
     heroIntro: "Votre partenaire pour créer, investir et transformer.",
     presentation:
@@ -208,36 +218,42 @@ const departmentDetails = {
       {
         icon: "bi-building",
         title: "Location et vente de bâtiments et terrains",
+        image: photos.building,
         description:
           "Nous vous proposons un vaste portefeuille de biens immobiliers, qu’il s’agisse de bâtiments commerciaux, de terrains à développer, de propriétés résidentielles ou d’investissements immobiliers.",
       },
       {
         icon: "bi-hammer",
         title: "Construction et rénovation",
+        image: photos.construction,
         description:
           "De la conception à la réalisation, nous construisons des bâtiments exceptionnels et rénovons des biens pour qu’ils répondent à vos besoins et aux normes les plus élevées.",
       },
       {
         icon: "bi-clipboard-data",
         title: "Conseil et expertise immobilière",
+        image: photos.plans,
         description:
           "Nos experts immobiliers vous guident dans la prise de décisions éclairées en matière d’investissements immobiliers.",
       },
       {
         icon: "bi-briefcase",
         title: "Gestion immobilière",
+        image: photos.architecture,
         description:
           "Simplifiez la gestion de vos biens grâce à notre service de gestion immobilière. Nous prenons en charge les aspects administratifs, de maintenance et de location.",
       },
       {
         icon: "bi-map",
         title: "Aménagement et lotissement",
+        image: photos.neighborhood,
         description:
           "Transformez des terrains bruts en quartiers résidentiels ou zones commerciales. Notre expertise en aménagement du territoire crée des espaces fonctionnels et attrayants.",
       },
       {
         icon: "bi-flower1",
         title: "Décoration d’intérieur et aménagement d’espaces verts",
+        image: photos.interior,
         description:
           "Créez des intérieurs élégants et des espaces extérieurs verdoyants grâce à nos services de décoration et d’aménagement paysager.",
       },
@@ -247,6 +263,7 @@ const departmentDetails = {
       {
         eyebrow: "Notre portefeuille",
         title: "Types de biens",
+        image: photos.city,
         icon: "bi-house-door",
         items: [
           "Bâtiments commerciaux",
@@ -258,6 +275,7 @@ const departmentDetails = {
       {
         eyebrow: "De A à Z",
         title: "Accompagnement",
+        image: photos.partnership,
         icon: "bi-arrow-right-circle",
         items: [
           "Conception",
@@ -297,7 +315,6 @@ const departmentDetails = {
     slug: "agrobusiness",
     name: "GS Agrobusiness",
     theme: "theme-agrobusiness", // vert + bleu marine + gris + blanc
-    heroImage: "/AGROBUSINESS_HERO.webp",
     tagline: "Nourrir le monde, créer des opportunités.",
     heroIntro:
       "Des solutions agricoles modernes pour répondre aux besoins de l’agriculture moderne.",
@@ -316,30 +333,35 @@ const departmentDetails = {
       {
         icon: "bi-diagram-3",
         title: "Gestion de projet agricole",
+        image: photos.greenhouse,
         description:
           "Nous collaborons avec des agriculteurs, des entreprises et des organisations pour gérer des projets agricoles à grande échelle, de la planification à la mise en œuvre. Notre expertise garantit des opérations agricoles efficaces et productives.",
       },
       {
         icon: "bi-basket3",
         title: "Vente de produits agricoles",
+        image: photos.vegetables,
         description:
           "Nous proposons une gamme variée de produits agricoles de haute qualité, qu’il s’agisse de céréales, de fruits, de légumes, de viande ou d’autres produits. Notre objectif est de mettre des aliments de qualité sur votre table.",
       },
       {
         icon: "bi-flower2",
         title: "Vente de semences",
+        image: photos.seeds,
         description:
           "Les semences sont la base de l’agriculture. Nous fournissons des semences de qualité supérieure, adaptées aux besoins spécifiques de votre culture, pour garantir des récoltes fructueuses.",
       },
       {
         icon: "bi-chat-square-text",
         title: "Conseils agricoles",
+        image: photos.farmingAdvice,
         description:
           "Notre équipe d’experts agricoles offre des conseils personnalisés pour aider les agriculteurs et les entreprises à maximiser leur rendement, à améliorer leurs pratiques agricoles et à relever les défis actuels du secteur.",
       },
       {
         icon: "bi-bag-check",
         title: "Vente d’intrants agricoles",
+        image: photos.inputs,
         description:
           "Nous comprenons l’importance cruciale des intrants agricoles de qualité pour une agriculture prospère. C’est pourquoi nous mettons à votre disposition une gamme complète d’intrants agricoles pour soutenir les agriculteurs dans leur quête de rendements exceptionnels et durables.",
       },
@@ -349,6 +371,7 @@ const departmentDetails = {
       {
         eyebrow: "Nos secteurs",
         title: "Domaines agricoles",
+        image: photos.tomatoes,
         icon: "bi-tree",
         items: [
           "Agriculture moderne",
@@ -361,6 +384,7 @@ const departmentDetails = {
       {
         eyebrow: "Notre offre",
         title: "Produits et solutions",
+        image: photos.harvest,
         icon: "bi-check2-circle",
         items: [
           "Produits agricoles",
@@ -400,7 +424,6 @@ const departmentDetails = {
     slug: "foreurs-guinee",
     name: "Les Foreurs de Guinée",
     theme: "theme-foreurs", // bleu ciel/cyan + bleu pétrole + marron/or + gris + blanc
-    heroImage: "/forage_hero.webp",
     tagline: "Un accès fiable à l’eau potable et durable.",
     heroIntro:
       "Des solutions de forage fiables pour répondre aux besoins en eau potable, agricoles, miniers et communautaires.",
@@ -421,24 +444,28 @@ const departmentDetails = {
           {
             icon: "bi-people",
             title: "Expertise",
+            image: photos.drillingTeam,
             description:
               "Notre équipe expérimentée de foreurs, géologues et ingénieurs possède une connaissance approfondie des défis uniques liés au forage en Guinée.",
           },
           {
             icon: "bi-shield-check",
             title: "Engagement envers la qualité et la sécurité",
+            image: photos.technician,
             description:
               "La qualité de notre travail et la sécurité de nos opérations sont au cœur de nos préoccupations. Nous suivons des normes rigoureuses pour garantir la satisfaction des clients et la sécurité de nos équipes.",
           },
           {
             icon: "bi-tree",
             title: "Responsabilité sociale et environnementale",
+            image: photos.community,
             description:
               "Nous nous engageons à travailler en étroite collaboration avec les communautés locales, à promouvoir le développement durable et à minimiser notre impact sur l’environnement.",
           },
           {
             icon: "bi-cpu",
             title: "Innovation technologique",
+            image: photos.drillingTruck,
             description:
               "Nous investissons dans les dernières technologies de forage pour offrir des solutions efficaces et durables.",
           },
@@ -452,30 +479,35 @@ const departmentDetails = {
       {
         icon: "bi-droplet",
         title: "Forage de puits d’eau",
+        image: photos.water,
         description:
           "Nous avons l’expertise et l’équipement pour mener à bien des projets de forage de puits d’eau, garantissant un approvisionnement en eau propre et sécurisé pour les communautés, les entreprises et les infrastructures.",
       },
       {
         icon: "bi-clipboard-data",
         title: "Analyse du sol et du sous-sol",
+        image: photos.technician,
         description:
           "La qualité de l’eau et les caractéristiques du sol sont essentielles pour la planification des projets d’accès à l’eau. Nous effectuons des analyses précises pour garantir la conformité aux normes de qualité.",
       },
       {
         icon: "bi-tools",
         title: "Maintenance de forages",
+        image: photos.drillingTeam,
         description:
           "Notre équipe qualifiée assure la maintenance régulière de vos forages, prolongeant leur durée de vie et garantissant leur bon fonctionnement en tout temps.",
       },
       {
         icon: "bi-building",
         title: "Construction de châteaux d’eau",
+        image: photos.waterTower,
         description:
           "Nous concevons, construisons et entretenons des châteaux d’eau, une composante essentielle des systèmes de distribution d’eau potable.",
       },
       {
         icon: "bi-arrow-up-circle",
         title: "Puits améliorés",
+        image: photos.community,
         description:
           "Nous n’arrêtons pas seulement au forage. Nous améliorons et optimisons les puits existants pour maximiser leur efficacité et leur rendement.",
       },
@@ -485,6 +517,7 @@ const departmentDetails = {
       {
         eyebrow: "Nos champs d’action",
         title: "Domaines d’intervention",
+        image: photos.waterDrop,
         icon: "bi-water",
         items: [
           "Eau potable",
@@ -498,6 +531,7 @@ const departmentDetails = {
       {
         eyebrow: "De A à Z",
         title: "Accompagnement",
+        image: photos.drillingTruck,
         icon: "bi-arrow-right-circle",
         items: [
           "Étude du besoin",
@@ -535,4 +569,8 @@ const departmentDetails = {
   },
 };
 
-export default departmentDetails;
+export default Object.fromEntries(
+  Object.entries(departmentDetails).map(([key, data]) => [key, {
+    ...data, ...departmentVisuals[data.slug],
+  }])
+);

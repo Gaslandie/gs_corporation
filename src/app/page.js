@@ -1,27 +1,33 @@
+import Link from "next/link";
+import Visual from "@/components/Visual";
+import GroupVisual from "@/components/sections/GroupVisual";
 import HeroCarousel from "@/components/sections/HeroCarousel";
 import SectionTitle from "@/components/sections/SectionTitle";
 import ContactCTA from "@/components/sections/ContactCTA";
-import DepartmentCard from "@/components/cards/DepartmentCard";
+import DepartmentDirectory from "@/components/sections/DepartmentDirectory";
+import PrinciplesList from "@/components/sections/PrinciplesList";
 import ServiceCard from "@/components/cards/ServiceCard";
 import departments from "@/data/departments";
 import departmentDetails from "@/data/departmentDetails";
-import siteInfo from "@/data/siteInfo";
 import home from "@/data/home";
 
 // Slides du hero : 1 slide GS Corporation + 1 slide par département (avec sa photo).
 const heroSlides = [
   {
     image: home.hero.image,
-    eyebrow: "Groupe multisectoriel",
+    eyebrow: "GS Corporation · Conakry, Guinée",
+    label: "Le groupe",
     title: home.hero.title,
     text: home.hero.subtitle,
     cta: home.hero.primaryAction,
   },
   ...Object.values(departmentDetails).map((dept) => ({
-    image: dept.heroImage,
-    eyebrow: "Nos départements",
-    title: dept.name,
-    text: dept.tagline,
+    image: dept.cover,
+    theme: dept.theme,
+    label: dept.name.replace("GS ", "").replace("Les Foreurs de Guinée", "Forage"),
+    eyebrow: dept.name,
+    title: dept.headline,
+    text: dept.intro,
     cta: { label: `Découvrir ${dept.name}`, href: `/${dept.slug}` },
   })),
 ];
@@ -32,7 +38,7 @@ const heroSlides = [
 // (voir src/app/layout.js).
 export default function Home() {
   return (
-    <main>
+    <main id="contenu" tabIndex={-1}>
       {/* Hero : carrousel de départements */}
       <HeroCarousel slides={heroSlides} infoBlocks={home.hero.infoBlocks} />
 
@@ -46,12 +52,11 @@ export default function Home() {
                 title={home.presentation.title}
                 center={false}
               />
-              <p className="fs-5 text-secondary mb-0">{home.presentation.text}</p>
+              <p className="fs-5 text-secondary mb-4">{home.presentation.text}</p>
+              <Link className="gs-text-link" href="/a-propos">Découvrir le groupe<i className="bi bi-arrow-right" aria-hidden="true" /></Link>
             </div>
             <div className="col-12 col-lg-5">
-              <div className="gs-monogram">
-                <span>GS</span>
-              </div>
+              <GroupVisual />
             </div>
           </div>
         </div>
@@ -62,33 +67,30 @@ export default function Home() {
         <div className="container">
           <SectionTitle
             eyebrow="Nos départements"
-            title="Un groupe, plusieurs expertises"
+            title="Cinq expertises. Une même ambition."
+            center={false}
             subtitle="GS Corporation rassemble plusieurs sociétés complémentaires au service du développement."
           />
-          <div className="row g-4">
-            {departments.map((department) => (
-              <div className="col-12 col-md-6 col-lg-4" key={department.slug}>
-                <DepartmentCard department={department} themed={false} />
-              </div>
-            ))}
-          </div>
+          <DepartmentDirectory departments={departments} />
         </div>
       </section>
 
       {/* Nos engagements */}
       <section className="section-padding gs-navy-accent">
         <div className="container">
-          <SectionTitle
-            eyebrow={home.engagements.eyebrow}
-            title={home.engagements.title}
-            subtitle={home.engagements.text}
-          />
-          <div className="row g-4">
-            {home.engagements.items.map((item) => (
-              <div className="col-12 col-md-6 col-lg-4" key={item.title}>
-                <ServiceCard service={item} />
-              </div>
-            ))}
+          <div className="row g-5">
+            <div className="col-12 col-lg-5">
+              <SectionTitle
+                eyebrow={home.engagements.eyebrow}
+                title={home.engagements.title}
+                subtitle={home.engagements.text}
+                center={false}
+              />
+              <Visual image={home.engagements.image} caption={home.engagements.imageCaption} zoomable className="gs-editorial-photo" sizes="(max-width: 991px) 100vw, 42vw" />
+            </div>
+            <div className="col-12 col-lg-6 offset-lg-1">
+              <PrinciplesList items={home.engagements.items} />
+            </div>
           </div>
         </div>
       </section>
@@ -96,7 +98,7 @@ export default function Home() {
       {/* Aperçu : biens immobiliers, engins & véhicules, réalisations */}
       <section className="section-padding section-muted gs-navy-accent">
         <div className="container">
-          <SectionTitle eyebrow={home.apercu.eyebrow} title={home.apercu.title} />
+          <SectionTitle eyebrow={home.apercu.eyebrow} title={home.apercu.title} center={false} />
           <div className="row g-4">
             {home.apercu.items.map((item) => (
               <div className="col-12 col-md-6 col-lg-4" key={item.title}>
@@ -104,16 +106,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Slogan */}
-      <section className="section-padding text-white text-center" style={{ backgroundColor: "var(--gs-bleu-marine)" }}>
-        <div className="container">
-          <i className="bi bi-quote display-3" style={{ color: "var(--gs-rouge)" }} aria-hidden="true"></i>
-          <p className="fs-2 fw-light fst-italic mx-auto mb-0" style={{ maxWidth: "820px" }}>
-            {siteInfo.slogan}
-          </p>
         </div>
       </section>
 

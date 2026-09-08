@@ -1,3 +1,5 @@
+import { photos } from "@/data/media";
+
 // Contenu de la page d'accueil GS Corporation.
 // Textes fidèles au document client D1 (reformulés légèrement pour le web,
 // sans changer le sens). Centralisé ici pour rester facilement modifiable.
@@ -5,13 +7,13 @@
 const home = {
   hero: {
     // Image de fond du hero (photo réelle dans public/).
-    image: "/gs_hero.webp",
-    title: "GS CORPORATION",
+    image: photos.skyline,
+    title: "Des expertises qui font avancer vos projets.",
     subtitle:
-      "Entreprise multisectorielle dédiée à la création de valeur à long terme",
+      "Cinq départements complémentaires, un même engagement : accompagner vos projets et créer une valeur durable en Guinée.",
     text: "Des services de pointe dans divers secteurs, portés par une expertise approfondie et des solutions innovantes.",
     primaryAction: { label: "Découvrir nos départements", href: "/departements" },
-    // Bloc rouge d'informations affiché en bas à droite du hero.
+    // Repères du groupe affichés sous la navigation des visuels.
     infoBlocks: [
       {
         icon: "bi-grid-1x2",
@@ -34,13 +36,15 @@ const home = {
   presentation: {
     eyebrow: "Qui sommes-nous",
     title: "Un groupe créateur de valeur",
-    text: "GS Corporation est une entreprise leader dans le domaine de la gestion d’actifs, offrant des services de pointe dans divers secteurs. Notre entreprise est dédiée à la création de valeur à long terme pour nos clients grâce à une expertise approfondie et à des solutions innovantes.",
+    text: "Conseiller une entreprise, équiper un chantier, valoriser un bien, accompagner une production agricole ou faciliter l’accès à l’eau : GS Corporation réunit les expertises utiles à chaque étape de vos projets. Basé à Conakry, le groupe vous oriente vers le département adapté à votre besoin.",
   },
 
   engagements: {
+    image: photos.farmingAdvice,
+    imageCaption: "L’écoute et l’accompagnement, au plus près du terrain.",
     eyebrow: "Nos engagements",
     title: "Ce qui guide notre action",
-    text: "Chez GS Corporation, nous sommes déterminés à fournir des solutions sur mesure, à innover constamment et à maintenir des normes élevées de qualité et de durabilité dans tout ce que nous faisons. Notre succès repose sur l’intégrité, l’innovation et l’excellence opérationnelle.",
+    text: "Comprendre votre besoin, apporter une réponse juste et construire une relation de confiance. Cinq engagements guident notre travail au quotidien.",
     items: [
       {
         icon: "bi-sliders2",
@@ -77,6 +81,7 @@ const home = {
       {
         icon: "bi-house-door",
         title: "Biens immobiliers",
+        image: photos.plans,
         description: "Découvrez nos bâtiments en location et à la vente.",
         href: "/biens-immobiliers",
         linkLabel: "Voir les biens",
@@ -84,6 +89,7 @@ const home = {
       {
         icon: "bi-truck-front",
         title: "Engins & véhicules",
+        image: photos.miningTruck,
         description: "Engins roulants et véhicules disponibles à la location.",
         href: "/engins-vehicules",
         linkLabel: "Voir le parc",
@@ -91,6 +97,7 @@ const home = {
       {
         icon: "bi-trophy",
         title: "Réalisations",
+        image: photos.community,
         description: "Un aperçu de nos projets et de nos réalisations.",
         href: "/realisations",
         linkLabel: "Voir les réalisations",

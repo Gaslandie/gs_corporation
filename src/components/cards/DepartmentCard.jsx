@@ -1,48 +1,19 @@
 import Link from "next/link";
+import BrandLogo from "@/components/BrandLogo";
+import Visual from "@/components/Visual";
 
-// Carte d'un département du groupe.
-// La classe de thème (dept.theme) surcharge --gs-primary pour adapter les couleurs.
-// Props :
-//   department  : objet département (name, description, icon, theme, href).
-//   themed      : applique la couleur du département (false sur l'accueil).
-//   ctaLabel    : libellé de l'action ("En savoir plus" par défaut).
-//   ctaAsButton : affiche l'action sous forme de bouton plutôt que de lien.
-export default function DepartmentCard({
-  department,
-  themed = true,
-  ctaLabel = "En savoir plus",
-  ctaAsButton = false,
-}) {
+export default function DepartmentCard({ department, ctaLabel = "Découvrir le département", showImage = true }) {
   return (
-    <div className={`card-gs d-flex flex-column ${themed ? department.theme : ""}`}>
-      <span className="gs-icon-badge mb-3">
-        <i className={`bi ${department.icon}`} aria-hidden="true"></i>
-      </span>
-
-      <h3 className="h5 fw-bold" style={{ color: "var(--gs-bleu-marine)" }}>
-        {department.name}
-      </h3>
-
-      <p className="text-secondary flex-grow-1">{department.description}</p>
-
-      {ctaAsButton ? (
-        <Link
-          href={department.href}
-          className="btn btn-gs-primary align-self-start mt-3"
-        >
-          {ctaLabel}
-          <i className="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+    <article className={`card-gs gs-department-card ${department.theme}`}>
+      {showImage && <Visual image={department.cover} className="gs-card-visual" showSource={false} />}
+      <div className="gs-card-body">
+        <BrandLogo brand={department.brand} className="gs-department-card-logo" />
+        <h3 className="h4">{department.name}</h3>
+        <p className="text-secondary flex-grow-1">{department.description}</p>
+        <Link href={department.href} className="gs-text-link stretched-link" aria-label={`${ctaLabel} : ${department.name}`}>
+          {ctaLabel}<i className="bi bi-arrow-up-right" aria-hidden="true" />
         </Link>
-      ) : (
-        <Link
-          href={department.href}
-          className="fw-semibold text-decoration-none mt-2"
-          style={{ color: "var(--gs-primary)" }}
-        >
-          {ctaLabel}
-          <i className="bi bi-arrow-right ms-1" aria-hidden="true"></i>
-        </Link>
-      )}
-    </div>
+      </div>
+    </article>
   );
 }

@@ -1,7 +1,8 @@
 import Link from "next/link";
+import Visual from "@/components/Visual";
 import PageHeader from "@/components/sections/PageHeader";
 import SectionTitle from "@/components/sections/SectionTitle";
-import departments from "@/data/departments";
+import ContactForm from "@/components/sections/ContactForm";
 import siteInfo from "@/data/siteInfo";
 import contact from "@/data/contact";
 
@@ -11,14 +12,12 @@ export const metadata = {
     "Contactez GS Corporation : adresse, téléphones, email, WhatsApp et formulaire pour être orienté vers le bon département.",
 };
 
-// Options du champ « Département concerné » (GS Corporation + les 5 départements).
-const departmentOptions = ["GS Corporation", ...departments.map((d) => d.name)];
-
 export default function ContactPage() {
   return (
-    <main>
+    <main id="contenu" tabIndex={-1}>
       {/* En-tête de page */}
       <PageHeader
+        image={contact.header.image}
         eyebrow={contact.header.eyebrow}
         title={contact.header.title}
         subtitle={contact.header.subtitle}
@@ -67,7 +66,7 @@ export default function ContactPage() {
                   Email
                 </h2>
                 <p className="text-secondary mb-0">
-                  <a className="link-dark text-decoration-none" href={`mailto:${siteInfo.email}`}>
+                  <a className="link-dark text-decoration-none text-break" href={`mailto:${siteInfo.email}`}>
                     {siteInfo.email}
                   </a>
                 </p>
@@ -81,71 +80,15 @@ export default function ContactPage() {
       <section className="section-padding section-muted">
         <div className="container">
           <div className="row g-5">
-            {/* Formulaire visuel (non fonctionnel pour le moment) */}
+            {/* Préparation locale du message, sans backend. */}
             <div className="col-12 col-lg-7">
               <div className="card-gs">
                 <SectionTitle
                   eyebrow="Écrivez-nous"
-                  title="Envoyer un message"
+                  title="Parlons de votre projet"
                   center={false}
                 />
-                <form>
-                  <div className="row g-3">
-                    <div className="col-12 col-md-6">
-                      <label htmlFor="nom" className="form-label fw-semibold">
-                        Nom complet
-                      </label>
-                      <input type="text" className="form-control" id="nom" placeholder="Votre nom complet" />
-                    </div>
-                    <div className="col-12 col-md-6">
-                      <label htmlFor="telephone" className="form-label fw-semibold">
-                        Téléphone
-                      </label>
-                      <input type="tel" className="form-control" id="telephone" placeholder="+224 ..." />
-                    </div>
-                    <div className="col-12 col-md-6">
-                      <label htmlFor="email" className="form-label fw-semibold">
-                        Email
-                      </label>
-                      <input type="email" className="form-control" id="email" placeholder="vous@exemple.com" />
-                    </div>
-                    <div className="col-12 col-md-6">
-                      <label htmlFor="departement" className="form-label fw-semibold">
-                        Département concerné
-                      </label>
-                      <select className="form-select" id="departement" defaultValue="">
-                        <option value="" disabled>
-                          Choisir un département
-                        </option>
-                        {departmentOptions.map((name) => (
-                          <option key={name} value={name}>
-                            {name}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                    <div className="col-12">
-                      <label htmlFor="message" className="form-label fw-semibold">
-                        Message
-                      </label>
-                      <textarea
-                        className="form-control"
-                        id="message"
-                        rows={5}
-                        placeholder="Décrivez votre projet ou votre besoin..."
-                      ></textarea>
-                    </div>
-                    <div className="col-12">
-                      <button type="button" className="btn btn-gs-primary">
-                        <i className="bi bi-send me-2" aria-hidden="true"></i>
-                        Envoyer le message
-                      </button>
-                      <p className="text-secondary small mt-2 mb-0">
-                        Formulaire de démonstration — l’envoi sera activé prochainement.
-                      </p>
-                    </div>
-                  </div>
-                </form>
+                <ContactForm />
               </div>
             </div>
 
@@ -195,15 +138,15 @@ export default function ContactPage() {
           <div className="row g-4">
             {contact.orientation.map((item) => (
               <div className="col-12 col-md-6 col-lg-4" key={item.departement}>
-                <Link href={item.href} className="card-gs d-flex flex-column text-decoration-none h-100">
-                  <span className="gs-icon-badge mb-3">
-                    <i className={`bi ${item.icon}`} aria-hidden="true"></i>
-                  </span>
+                <Link href={item.href} className="card-gs gs-service-photo d-flex flex-column text-decoration-none h-100">
+                  <Visual image={item.image} className="gs-card-visual" showSource={false} />
+                  <div className="gs-card-body">
                   <p className="text-secondary flex-grow-1 mb-2">{item.besoin}</p>
                   <span className="fw-semibold" style={{ color: "var(--gs-primary)" }}>
                     {item.departement}
                     <i className="bi bi-arrow-right ms-1" aria-hidden="true"></i>
                   </span>
+                  </div>
                 </Link>
               </div>
             ))}

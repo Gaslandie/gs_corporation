@@ -1,3 +1,5 @@
+import { photos } from "@/data/media";
+import Visual from "@/components/Visual";
 import PageHeader from "@/components/sections/PageHeader";
 import SectionTitle from "@/components/sections/SectionTitle";
 import ContactCTA from "@/components/sections/ContactCTA";
@@ -19,9 +21,10 @@ const expertisePoints = [
 
 export default function DepartementsPage() {
   return (
-    <main>
+    <main id="contenu" tabIndex={-1}>
       {/* 1. En-tête de page */}
       <PageHeader
+        image={photos.skyline}
         eyebrow="Le groupe"
         title="Nos départements"
         subtitle="GS Corporation intervient dans plusieurs secteurs à travers des départements spécialisés, chacun dédié à des solutions adaptées aux besoins de ses clients."
@@ -55,7 +58,6 @@ export default function DepartementsPage() {
                 <DepartmentCard
                   department={department}
                   ctaLabel="Découvrir"
-                  ctaAsButton
                 />
               </div>
             ))}
@@ -81,6 +83,7 @@ export default function DepartementsPage() {
               </p>
             </div>
             <div className="col-12 col-lg-5">
+              <Visual image={photos.partnership} zoomable className="gs-editorial-photo mb-4" sizes="(max-width: 991px) 100vw, 42vw" />
               <ul className="list-unstyled mb-0">
                 {expertisePoints.map((point) => (
                   <li className="d-flex align-items-center mb-3" key={point.label}>

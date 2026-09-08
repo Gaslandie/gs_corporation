@@ -1,3 +1,5 @@
+import { photos } from "@/data/media";
+
 // Réalisations (projets) de GS Corporation.
 // Données fictives mais réalistes, liées aux départements existants.
 // Le département est référencé depuis src/data/departments.js (source unique).
@@ -9,6 +11,7 @@ const bySlug = Object.fromEntries(departments.map((d) => [d.slug, d]));
 const projects = [
   {
     id: 1,
+    image: photos.training,
     title: "Formation professionnelle organisée par GS Consulting",
     slug: "formation-professionnelle-gs-consulting",
     department: bySlug["gs-consulting"],
@@ -18,10 +21,10 @@ const projects = [
     location: "Conakry",
     year: "2024",
     icon: "bi-mortarboard",
-    href: "#",
   },
   {
     id: 2,
+    image: photos.strategy,
     title: "Accompagnement en stratégie marketing et communication",
     slug: "strategie-marketing-communication",
     department: bySlug["gs-consulting"],
@@ -31,10 +34,10 @@ const projects = [
     location: "Conakry",
     year: "2024",
     icon: "bi-megaphone",
-    href: "#",
   },
   {
     id: 3,
+    image: photos.construction,
     title: "Projet de construction et rénovation immobilière",
     slug: "construction-renovation-immobiliere",
     department: bySlug["gs-immobilier"],
@@ -44,10 +47,10 @@ const projects = [
     location: "Ratoma, Conakry",
     year: "2023",
     icon: "bi-building",
-    href: "#",
   },
   {
     id: 4,
+    image: photos.loader,
     title: "Mise à disposition d’engins pour travaux de terrassement",
     slug: "engins-travaux-terrassement",
     department: bySlug["gs-logistique"],
@@ -57,10 +60,10 @@ const projects = [
     location: "Boké",
     year: "2023",
     icon: "bi-truck",
-    href: "#",
   },
   {
     id: 5,
+    image: photos.farmingAdvice,
     title: "Projet agricole avec accompagnement technique",
     slug: "projet-agricole-accompagnement-technique",
     department: bySlug["gs-agrobusiness"],
@@ -70,10 +73,10 @@ const projects = [
     location: "Kindia",
     year: "2024",
     icon: "bi-tree",
-    href: "#",
   },
   {
     id: 6,
+    image: photos.community,
     title: "Forage de puits d’eau communautaire",
     slug: "forage-puits-eau-communautaire",
     department: bySlug["les-foreurs-de-guinee"],
@@ -83,7 +86,6 @@ const projects = [
     location: "Kankan",
     year: "2023",
     icon: "bi-droplet",
-    href: "#",
   },
 ];
 

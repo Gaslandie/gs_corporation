@@ -1,3 +1,6 @@
+import temporaryPhotos from "@/data/temporaryMedia";
+import { photos } from "@/data/media";
+
 // Engins, véhicules et équipements proposés à la location par GS Logistique.
 // Données fictives mais réalistes (maquette). Prix « Sur demande ».
 
@@ -12,6 +15,7 @@ const waLink = (name) =>
 const equipments = [
   {
     id: 1,
+    image: temporaryPhotos.backhoe,
     name: "Tractopelle",
     slug: "tractopelle",
     category: "Engin lourd",
@@ -24,11 +28,11 @@ const equipments = [
       "Engin polyvalent pour le terrassement, l’assainissement et les travaux BTP.",
     features: ["Polyvalent", "Godet avant", "BTP"],
     icon: "bi-truck-flatbed",
-    href: "#",
     whatsapp: waLink("Tractopelle"),
   },
   {
     id: 2,
+    image: temporaryPhotos.bulldozer,
     name: "Bulldozer",
     slug: "bulldozer",
     category: "Engin lourd",
@@ -41,11 +45,11 @@ const equipments = [
       "Bouteur puissant pour le nivellement, le terrassement et les grands travaux.",
     features: ["Forte puissance", "Lame frontale", "Grands travaux"],
     icon: "bi-cone-striped",
-    href: "#",
     whatsapp: waLink("Bulldozer"),
   },
   {
     id: 3,
+    image: temporaryPhotos.roller,
     name: "Compacteur",
     slug: "compacteur",
     category: "Engin lourd",
@@ -58,11 +62,11 @@ const equipments = [
       "Rouleau compacteur pour le compactage des sols et les travaux routiers.",
     features: ["Compactage", "Travaux routiers", "Sols"],
     icon: "bi-record-circle",
-    href: "#",
     whatsapp: waLink("Compacteur"),
   },
   {
     id: 4,
+    image: photos.drillingTeam,
     name: "Foreuse",
     slug: "foreuse",
     category: "Équipement",
@@ -75,11 +79,11 @@ const equipments = [
       "Foreuse adaptée aux opérations de forage et aux travaux techniques.",
     features: ["Forage", "Technique", "Précision"],
     icon: "bi-wrench-adjustable",
-    href: "#",
     whatsapp: waLink("Foreuse"),
   },
   {
     id: 5,
+    image: temporaryPhotos.crane,
     name: "Grue mobile",
     slug: "grue-mobile",
     category: "Engin lourd",
@@ -92,11 +96,11 @@ const equipments = [
       "Grue mobile pour le levage, la manutention et les travaux industriels.",
     features: ["Levage", "Mobile", "Industrie"],
     icon: "bi-arrow-up-square",
-    href: "#",
     whatsapp: waLink("Grue mobile"),
   },
   {
     id: 6,
+    image: temporaryPhotos.tanker,
     name: "Camion citerne",
     slug: "camion-citerne",
     category: "Camion",
@@ -108,11 +112,11 @@ const equipments = [
     description: "Camion citerne pour le transport et l’approvisionnement.",
     features: ["Transport liquide", "Grande capacité", "Approvisionnement"],
     icon: "bi-truck",
-    href: "#",
     whatsapp: waLink("Camion citerne"),
   },
   {
     id: 7,
+    image: photos.pickup,
     name: "Pick-up",
     slug: "pick-up",
     category: "Véhicule",
@@ -125,11 +129,11 @@ const equipments = [
       "Pick-up robuste pour les courses, le transport léger et les déplacements terrain.",
     features: ["4x4", "Tout terrain", "Polyvalent"],
     icon: "bi-truck-front",
-    href: "#",
     whatsapp: waLink("Pick-up"),
   },
   {
     id: 8,
+    image: temporaryPhotos.van,
     name: "Camionnette",
     slug: "camionnette",
     category: "Véhicule",
@@ -142,11 +146,11 @@ const equipments = [
       "Camionnette utilitaire pour le transport, la livraison et la logistique.",
     features: ["Utilitaire", "Livraison", "Logistique"],
     icon: "bi-truck-front-fill",
-    href: "#",
     whatsapp: waLink("Camionnette"),
   },
   {
     id: 9,
+    image: temporaryPhotos.grader,
     name: "Niveleuse",
     slug: "niveleuse",
     category: "Engin lourd",
@@ -158,11 +162,11 @@ const equipments = [
     description: "Niveleuse pour le nivellement et les travaux routiers.",
     features: ["Nivellement", "Routes", "Précision"],
     icon: "bi-rulers",
-    href: "#",
     whatsapp: waLink("Niveleuse"),
   },
   {
     id: 10,
+    image: temporaryPhotos.rammer,
     name: "Dame sauteuse",
     slug: "dame-sauteuse",
     category: "Équipement",
@@ -175,11 +179,11 @@ const equipments = [
       "Dame sauteuse pour le compactage des tranchées et les petits travaux.",
     features: ["Compactage", "Tranchées", "Compact"],
     icon: "bi-arrow-down-square",
-    href: "#",
     whatsapp: waLink("Dame sauteuse"),
   },
   {
     id: 11,
+    image: temporaryPhotos.telehandler,
     name: "Manitou",
     slug: "manitou",
     category: "Engin lourd",
@@ -192,11 +196,11 @@ const equipments = [
       "Chariot télescopique pour le levage et la manutention de charges.",
     features: ["Levage", "Télescopique", "Polyvalent"],
     icon: "bi-boxes",
-    href: "#",
     whatsapp: waLink("Manitou"),
   },
   {
     id: 12,
+    image: temporaryPhotos.scraper,
     name: "Décapeuse",
     slug: "decapeuse",
     category: "Engin lourd",
@@ -208,7 +212,6 @@ const equipments = [
     description: "Décapeuse pour le terrassement et le décapage de terrains.",
     features: ["Décapage", "Terrassement", "Grand rendement"],
     icon: "bi-layers",
-    href: "#",
     whatsapp: waLink("Décapeuse"),
   },
 ];
