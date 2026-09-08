@@ -407,13 +407,15 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .gs-page-header-logo img { width: 108px; height: 80px; }
 .gs-project-cover { position: relative; display: flex; align-items: center; justify-content: center; height: 225px; color: var(--gs-blanc); background: var(--gs-bleu-marine); }
 .gs-project-cover > i { font-size: 3rem; }
-.gs-project-cat, .gs-catalog-badges { position: absolute; top: var(--gs-space-sm); left: var(--gs-space-sm); z-index: 1; }
-.gs-project-cat { background: var(--gs-primary); color: var(--gs-blanc); padding: 0.2rem 0.7rem; font-size: var(--gs-fs-caption); border-radius: var(--gs-radius); }
+.gs-project-cat { position: absolute; top: var(--gs-space-sm); left: var(--gs-space-sm); z-index: 2; max-width: calc(100% - var(--gs-space-sm) * 2); overflow-wrap: anywhere; background: var(--gs-primary); color: var(--gs-blanc); padding: 0.2rem 0.7rem; font-size: var(--gs-fs-caption); border-radius: var(--gs-radius); }
 .gs-catalog-cover { position: relative; }
 .gs-photo-pending { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--gs-space-xs); aspect-ratio: 16 / 10; padding: var(--gs-space-lg) var(--gs-space-sm) var(--gs-space-md); background: var(--gs-gris-clair); color: var(--gs-gris); font-size: var(--gs-fs-xs); }
 .gs-photo-pending > i { color: var(--gs-primary); font-size: var(--gs-fs-heading); }
-.gs-catalog-badges { right: var(--gs-space-sm); display: flex; justify-content: space-between; gap: var(--gs-space-xs); }
-.gs-catalog-badges span { font-size: var(--gs-fs-caption); background: var(--gs-blanc); color: var(--gs-bleu-marine); padding: 0.25rem 0.6rem; border-radius: var(--gs-radius); }
+/* Les statuts ont leur propre ligne, indépendante du cadrage et des animations. */
+.gs-catalog-badges { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--gs-space-xs); padding: var(--gs-space-sm); background: var(--gs-blanc); border-bottom: var(--gs-bordure); }
+.gs-catalog-badges span { max-width: 100%; overflow-wrap: anywhere; font-size: var(--gs-fs-caption); font-weight: 600; background: var(--gs-gris-clair); color: var(--gs-bleu-marine); padding: 0.25rem 0.6rem; border: var(--gs-bordure); border-radius: var(--gs-radius); }
+.gs-catalog-badges span:last-child { margin-left: auto; }
+.gs-catalog-cover .gs-visual[data-fit="contain"] > .gs-visual-frame { background: var(--gs-blanc); }
 .gs-catalog-cover figcaption { padding: 0.65rem var(--gs-space-sm); background: var(--gs-gris-clair); font-size: var(--gs-fs-caption); }
 .gs-catalog-notice { border-left: 3px solid var(--gs-accent); padding: var(--gs-space-sm); background: var(--gs-blanc); font-size: var(--gs-fs-xs); color: var(--gs-gris); margin-bottom: var(--gs-space-md); }
 .gs-filter-count { font-size: var(--gs-fs-xs); color: var(--gs-gris); margin: var(--gs-space-sm) 0 var(--gs-space-md); }
