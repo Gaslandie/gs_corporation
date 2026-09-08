@@ -32,7 +32,7 @@ export default function HeroCarousel({ slides = [], infoBlocks = [] }) {
           <span key={`eyebrow-${index}`} className="gs-eyebrow text-white gs-hero-enter">{slide.eyebrow}</span>
           <h1 key={`title-${index}`} className="gs-hero-enter">{slide.title}</h1>
           <p key={`text-${index}`} className="gs-hero-enter">{slide.text}</p>
-          <div className="d-flex flex-wrap gap-3">
+          <div key={`actions-${index}`} className="d-flex flex-wrap gap-3 gs-hero-enter gs-hero-actions">
             <Link className={`btn ${index === 0 ? "btn-gs-primary" : "btn-gs-accent"}`} href={slide.cta.href}>
               {slide.cta.label}<i className="bi bi-arrow-right ms-2" aria-hidden="true" />
             </Link>

@@ -3,6 +3,7 @@ export const interactionSettings = {
   reducedMotionQuery: "(prefers-reduced-motion: reduce)",
   revealMargin: "0px 0px -24px 0px",
   revealThreshold: 0.05,
+  photoThreshold: 0.12,
   backToTopAfter: 700,
   swipeDistance: 55,
 };

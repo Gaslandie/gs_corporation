@@ -11,7 +11,7 @@ export default function ContactCTA({ image = photos.strategy, description = "Par
     <section className="gs-contact-section">
       <div className="container">
         <div className="gs-contact-feature">
-          <Visual image={image} className="gs-contact-photo" showSource={false} sizes="(max-width: 991px) 100vw, 33vw" />
+          <Visual image={image} entrance className="gs-contact-photo" showSource={false} sizes="(max-width: 991px) 100vw, 33vw" />
           <div className="gs-contact-panel">
             <div className="row g-4 align-items-center">
               <div className="col-12">

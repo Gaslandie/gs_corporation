@@ -94,7 +94,7 @@ export default function DepartmentPageTemplate({ data }) {
           <div className="row g-4">
             {lists.map((list) => <div className="col-12 col-lg" key={list.title}>
               <div className={`gs-list-panel ${list.image ? "gs-list-panel--photo" : ""} ${lists.length === 1 ? "gs-list-panel--wide" : ""}`}>
-                {list.image && <Visual image={list.image} className="gs-list-photo" showSource={false} sizes="(max-width: 991px) 100vw, 50vw" />}
+                {list.image && <Visual image={list.image} entrance={lists.length === 1} className="gs-list-photo" showSource={false} sizes="(max-width: 991px) 100vw, 50vw" />}
                 <div className="gs-list-content"><span className="gs-eyebrow">{list.eyebrow}</span><h2 className="h4 mb-4">{list.title}</h2>
                 {list.subtitle && <p>{list.subtitle}</p>}
                 <ul className="list-unstyled mb-0">{list.items.map((item) => <li key={item}><i className={`bi ${list.icon || "bi-check2-circle"}`} aria-hidden="true" />{item}</li>)}</ul>

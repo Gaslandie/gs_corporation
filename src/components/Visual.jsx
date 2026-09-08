@@ -4,31 +4,84 @@ import { useEffect, useId, useRef, useState } from "react";
 import Image from "next/image";
 import { asset } from "@/lib/assetPath";
 import { mediaLabels } from "@/data/media";
+import { interactionSettings } from "@/data/interactions";
 
 // Dimensions stables, chargement différé et légende accolée au visuel.
-export default function Visual({ image, className = "", caption, showSource = true, eager = false, zoomable = false, sizes = "(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 33vw" }) {
+export default function Visual({ image, className = "", caption, showSource = true, eager = false, zoomable = false, motion = true, entrance = eager || zoomable, sizes = "(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 33vw" }) {
   const [failedSrc, setFailedSrc] = useState(null);
   const [expanded, setExpanded] = useState(false);
+  const frameRef = useRef(null);
+  const imageRef = useRef(null);
+  const imageSrc = image?.src;
+
+  // Le zoom commence une seule fois, quand la photo est chargée et visible.
+  // Le calque d’entrée reste indépendant du survol pour éviter les à-coups.
+  useEffect(() => {
+    const frame = frameRef.current;
+    const picture = imageRef.current;
+    if (!motion || !entrance || !frame || !picture) return undefined;
+    const preference = window.matchMedia(interactionSettings.reducedMotionQuery);
+    let observer;
+    let visible = false;
+    let played = false;
+
+    const play = () => {
+      if (played || !visible || !picture.complete || !picture.naturalWidth || preference.matches) return;
+      frame.dataset.photoEntered = "true";
+      played = true;
+      observer?.disconnect();
+    };
+    const onPreference = () => {
+      if (preference.matches) {
+        delete frame.dataset.photoEntered;
+        played = true;
+        observer?.disconnect();
+      }
+    };
+
+    picture.addEventListener("load", play);
+    preference.addEventListener("change", onPreference);
+    if ("IntersectionObserver" in window) {
+      observer = new IntersectionObserver(([entry]) => {
+        visible = entry.isIntersecting && entry.intersectionRatio >= interactionSettings.photoThreshold;
+        play();
+      }, { threshold: interactionSettings.photoThreshold });
+      observer.observe(frame);
+    } else {
+      visible = true;
+      play();
+    }
+
+    return () => {
+      observer?.disconnect();
+      picture.removeEventListener("load", play);
+      preference.removeEventListener("change", onPreference);
+      delete frame.dataset.photoEntered;
+    };
+  }, [imageSrc, entrance, motion, failedSrc]);
+
   if (!image) return null;
   const remote = /^(?:https?:)?\/\//i.test(image.src);
   const failed = failedSrc === image.src;
   const note = remote ? mediaLabels.remote : showSource ? image.source : null;
   return (
-    <figure className={`gs-visual ${className}`}>
-      <div className="gs-visual-frame">
+    <figure className={`gs-visual ${motion ? "gs-visual--motion" : ""} ${className}`} data-fit={image.fit || "cover"}>
+      <div ref={frameRef} className="gs-visual-frame">
         {failed ? (
           <div className="gs-visual-fallback" role="img" aria-label={image.alt}>
             <i className="bi bi-image" aria-hidden="true" />
             <span>{mediaLabels.unavailable}</span>
           </div>
         ) : (
-          <Image
-            src={asset(image.src)} alt={image.alt} fill sizes={sizes}
-            loading={eager ? "eager" : "lazy"} fetchPriority={eager ? "high" : undefined}
-            unoptimized={remote || undefined}
-            style={{ objectFit: image.fit || "cover", objectPosition: image.position || "center" }}
-            onError={() => setFailedSrc(image.src)}
-          />
+          <div className="gs-visual-image">
+            <Image
+              ref={imageRef} src={asset(image.src)} alt={image.alt} fill sizes={sizes}
+              loading={eager ? "eager" : "lazy"} fetchPriority={eager ? "high" : undefined}
+              unoptimized={remote || undefined}
+              style={{ objectFit: image.fit || "cover", objectPosition: image.position || "center" }}
+              onError={() => setFailedSrc(image.src)}
+            />
+          </div>
         )}
         {zoomable && !failed && <button type="button" className="gs-photo-expand" aria-label={`Agrandir la photo : ${image.alt}`} aria-haspopup="dialog" onClick={() => setExpanded(true)}>
           <i className="bi bi-arrows-angle-expand" aria-hidden="true" /><span>Agrandir</span>
@@ -72,7 +125,7 @@ function PhotoDialog({ open, onClose, image, caption, showSource }) {
           <h2 id={titleId}>{image.alt}</h2>
           <button type="button" className="gs-dialog-close" aria-label="Fermer la photo" onClick={() => dialogRef.current.close()}><i className="bi bi-x-lg" aria-hidden="true" /></button>
         </div>
-        {open && <Visual image={{ ...image, fit: "contain" }} className="gs-photo-dialog-visual" caption={caption} showSource={showSource} eager sizes="90vw" />}
+        {open && <Visual image={{ ...image, fit: "contain" }} className="gs-photo-dialog-visual" caption={caption} showSource={showSource} motion={false} eager sizes="90vw" />}
       </div>
     </dialog>
   );

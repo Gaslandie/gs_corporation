@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { interactionSettings as settings } from "@/data/interactions";
 
-const revealSelector = ".gs-section-title, .card-gs, .gs-department-row, .gs-principles li, .gs-group-visual, .gs-contact-panel, .gs-story-photo";
+const revealSelector = ".gs-section-title, .card-gs, .gs-department-row, .gs-principles li, .gs-group-visual, .gs-contact-feature, .gs-story-photo";
 
 export default function SiteInteractions() {
   const pathname = usePathname();
