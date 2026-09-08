@@ -7,7 +7,7 @@ import { mediaLabels } from "@/data/media";
 import { interactionSettings } from "@/data/interactions";
 
 // Dimensions stables, chargement différé et légende accolée au visuel.
-export default function Visual({ image, className = "", caption, showSource = true, eager = false, zoomable = false, motion = true, entrance = eager || zoomable, sizes = "(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 33vw" }) {
+export default function Visual({ image, className = "", caption, showSource = true, eager = false, zoomable = false, motion = true, entrance = eager || zoomable, children, sizes = "(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 33vw" }) {
   const [failedSrc, setFailedSrc] = useState(null);
   const [expanded, setExpanded] = useState(false);
   const frameRef = useRef(null);
@@ -86,6 +86,7 @@ export default function Visual({ image, className = "", caption, showSource = tr
         {zoomable && !failed && <button type="button" className="gs-photo-expand" aria-label={`Agrandir la photo : ${image.alt}`} aria-haspopup="dialog" onClick={() => setExpanded(true)}>
           <i className="bi bi-arrows-angle-expand" aria-hidden="true" /><span>Agrandir</span>
         </button>}
+        {children}
       </div>
       {(caption || note || image.credit) && <figcaption>
         {caption && <span>{caption}</span>}

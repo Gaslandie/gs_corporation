@@ -317,7 +317,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .gs-department-card .gs-brand-signature { height: 84px; }
 .gs-group-visual { position: relative; padding: 0 0 var(--gs-space-md) var(--gs-space-md); }
 .gs-group-photo .gs-visual-frame { aspect-ratio: 1 / 1; border-radius: var(--gs-radius-lg); }
-.gs-group-logo { position: absolute; left: 0; bottom: 4rem; background: var(--gs-blanc); border: var(--gs-bordure); padding: var(--gs-space-sm); border-radius: var(--gs-radius); box-shadow: var(--gs-ombre-carte); }
+.gs-group-logo { position: absolute; left: var(--gs-space-sm); bottom: var(--gs-space-sm); z-index: 2; background: var(--gs-blanc); border: var(--gs-bordure); padding: var(--gs-space-sm); border-radius: var(--gs-radius); box-shadow: var(--gs-ombre-carte); }
 
 /* Navigation principale. */
 .gs-site-header { position: sticky; top: -38px; z-index: 1030; }
