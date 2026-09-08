@@ -30,7 +30,7 @@ export default function FilteredCatalog({ items, filters, kind }) {
           {query && <button type="button" aria-label="Effacer la recherche" onClick={() => { setQuery(""); searchRef.current?.focus(); }}><i className="bi bi-x-lg" aria-hidden="true" /></button>}
         </div>
       </div>
-      <div className="d-flex flex-wrap gap-2" role="group" aria-label="Filtrer le catalogue">
+      <div className="gs-catalog-filters d-flex flex-wrap gap-2" role="group" aria-label="Filtrer le catalogue">
         {filters.map((item, index) => <button type="button" key={item.label} aria-pressed={selected === index} aria-controls="catalogue-resultats" className={`btn ${selected === index ? "btn-gs-accent" : "btn-gs-outline"}`} onClick={() => setSelected(index)}>{item.label}</button>)}
       </div>
       <p className="gs-filter-count" role="status" aria-atomic="true">{visible.length} résultat{visible.length > 1 ? "s" : ""} · {filter.label}{query.trim() && ` · « ${query.trim()} »`}</p>
