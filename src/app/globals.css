@@ -93,8 +93,6 @@
   --gs-photo-entry-scale: 1.04;
   --gs-photo-hover-scale: 1.045;
   --gs-photo-hover-filter: saturate(1.06) contrast(1.02);
-  --gs-photo-detail-inset: 0.75rem;
-  --gs-photo-detail-border: 1px solid rgba(255, 255, 255, 0.48);
   --gs-photo-sheen: linear-gradient(110deg, transparent 25%, rgba(255, 255, 255, 0.17) 50%, transparent 75%);
   --gs-photo-expand-label-width: 6rem;
   --gs-dialog-backdrop: rgba(7, 24, 44, 0.88);
@@ -568,14 +566,10 @@ a, button { -webkit-tap-highlight-color: transparent; }
   .btn:hover .bi-arrow-up-right::before, .gs-department-row:hover .gs-round-arrow i::before, .gs-hero-secondary:hover i::before { transform: translate(2px, -2px); }
   article.card-gs:has(a):hover, a.card-gs:hover { transform: translateY(var(--gs-motion-lift)); }
   /* Même traitement photographique partout, sans intercepter les clics. */
-  .gs-visual--motion > .gs-visual-frame:has(.gs-visual-image)::before,
   .gs-visual--motion > .gs-visual-frame:has(.gs-visual-image)::after { content: ""; position: absolute; z-index: 1; pointer-events: none; }
-  .gs-visual--motion > .gs-visual-frame::before { inset: var(--gs-photo-detail-inset); border: var(--gs-photo-detail-border); border-radius: inherit; opacity: 0; transform: scale(0.98); transition: opacity var(--gs-motion-medium), transform var(--gs-photo-hover-duration) var(--gs-motion-ease); }
   .gs-visual--motion > .gs-visual-frame::after { inset: 0; background: var(--gs-photo-sheen); transform: translateX(-100%); }
   .gs-visual--motion > .gs-visual-frame:is(:hover, :focus-within) > .gs-visual-image > img,
   :is(.card-gs, .gs-department-row, .gs-home-hero-stage):is(:hover, :focus-within) .gs-visual--motion > .gs-visual-frame > .gs-visual-image > img { transform: scale(var(--gs-photo-hover-scale)); filter: var(--gs-photo-hover-filter); }
-  .gs-visual--motion > .gs-visual-frame:is(:hover, :focus-within)::before,
-  :is(.card-gs, .gs-department-row, .gs-home-hero-stage):is(:hover, :focus-within) .gs-visual--motion > .gs-visual-frame::before { opacity: 1; transform: scale(1); }
   .gs-visual--motion > .gs-visual-frame:is(:hover, :focus-within)::after,
   :is(.card-gs, .gs-department-row, .gs-home-hero-stage):is(:hover, :focus-within) .gs-visual--motion > .gs-visual-frame::after { animation: gs-photo-sheen var(--gs-photo-sheen-duration) ease-out; }
   .card-gs:has(.gs-visual):is(:hover, :focus-within) { border-color: color-mix(in srgb, var(--gs-accent) 32%, var(--gs-border-color)); box-shadow: var(--gs-ombre-carte-hover); }
