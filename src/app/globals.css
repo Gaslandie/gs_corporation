@@ -701,19 +701,3 @@ html:has(.gs-photo-dialog[open]) { overflow: hidden; }
   .gs-visual-image { transform: none !important; animation: none !important; }
   .gs-scroll-top, .gs-reading-progress, .gs-photo-expand { display: none; }
 }
-
-/* ==========================================================================
-   Mode maintenance (src/data/maintenance.js) — page plein écran, thème GS Corporation
-   ========================================================================== */
-.gs-maintenance { flex: 1; display: flex; align-items: center; justify-content: center; padding: var(--gs-space-md) var(--gs-space-sm); background: var(--gs-bleu-marine); background-image: var(--gs-overlay), radial-gradient(circle at 80% 15%, rgba(192, 25, 46, 0.35), transparent 45%); color: var(--gs-blanc); }
-.gs-maintenance-card { width: 100%; max-width: 640px; background: var(--gs-blanc); color: var(--gs-texte); border-radius: var(--gs-radius-lg); box-shadow: var(--gs-ombre-carte-hover); padding: clamp(2rem, 5vw, 3.5rem); border-top: 4px solid var(--gs-rouge); }
-.gs-maintenance-logo { margin-bottom: var(--gs-space-md); }
-.gs-maintenance-card h1 { font-size: var(--gs-fs-heading); font-weight: var(--gs-font-weight-heading); color: var(--gs-bleu-marine); line-height: 1.12; margin-bottom: var(--gs-space-sm); }
-.gs-maintenance-message { font-size: var(--gs-fs-lg); color: var(--gs-gris); max-width: var(--gs-text-measure); margin-bottom: var(--gs-space-md); }
-.gs-maintenance-contact-label { font-size: var(--gs-fs-caption); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gs-bleu-marine); margin-bottom: var(--gs-space-xs); }
-.gs-maintenance-contacts { display: flex; flex-wrap: wrap; gap: var(--gs-space-xs) var(--gs-space-md); margin-bottom: var(--gs-space-md); }
-.gs-maintenance-contacts li { display: inline-flex; align-items: center; gap: var(--gs-space-xs); font-size: var(--gs-fs-sm); }
-.gs-maintenance-contacts i { color: var(--gs-rouge); }
-.gs-maintenance-contacts a { color: var(--gs-bleu-marine); font-weight: 600; text-decoration: none; }
-.gs-maintenance-contacts a:hover { color: var(--gs-rouge); text-decoration: underline; }
-.gs-maintenance-footer { font-size: var(--gs-fs-caption); color: var(--gs-gris); border-top: var(--gs-bordure); padding-top: var(--gs-space-sm); margin: 0; }
