@@ -5,7 +5,7 @@
 // Après modification : commiter et pousser sur main pour redéployer.
 
 const maintenance = {
-  enabled: false,
+  enabled: true,
   title: "Site en maintenance",
   contactLabel: "Pour plus d’informations",
   contactEmail: "contact@gaslandie.com",
